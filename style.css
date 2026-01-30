@@ -37,7 +37,7 @@ body {
 /* 4. Arabic Text - Massive & Centered */
 .ar-display {
     font-family: 'Amiri', serif !important;
-    font-size: 5.5rem !important; /* Extra Big */
+    font-size: 100px; /* Extra Big */
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 30px;
@@ -76,7 +76,7 @@ body {
 }
 
 .label-en {
-    font-size: 0.75rem;
+    font-size: 80px;
     font-weight: 700;
     color: #6c757d;
     text-transform: uppercase;
