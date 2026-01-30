@@ -1,167 +1,121 @@
-// Random colorful background
-const backgrounds = ["#FFCDD2","#C8E6C9","#BBDEFB","#FFF9C4","#D1C4E9","#FFE0B2","#B2EBF2","#FFCCBC"];
-document.body.style.background = backgrounds[Math.floor(Math.random()*backgrounds.length)];
-
-// Random button colors
-function randomColor() {
-  const colors = ["#e91e63","#9c27b0","#3f51b5","#03a9f4","#4caf50","#ff9800","#ff5722","#795548"];
-  return colors[Math.floor(Math.random()*colors.length)];
-}
-
-function shuffleArray(arr){ 
-  return arr.sort(() => Math.random() - 0.5); 
-}
-
-// Categories
-const categories = [
-  {
-    name: "সহজ বাক্য",
-    sentences: [
-      {bangla:"এটি একটি কলম।", english:"This is a pen.", arabic:"هٰذَا قَلَمٌ", words:["هٰذَا","قَلَمٌ"]},
-      {bangla:"এটি একটি বই।", english:"This is a book.", arabic:"هٰذَا كِتَابٌ", words:["كِتَابٌ","هٰذَا"]},
-      {bangla:"সে খাচ্ছে।", english:"He is eating.", arabic:"هُوَ يَأْكُلُ", words:["هُوَ","يَأْكُلُ"]},
-      {bangla:"আমি ঘরে আছি।", english:"I am at home.", arabic:"أَنَا فِي الْبَيْتِ", words:["أَنَا","فِي","الْبَيْتِ"]},
-      {bangla:"পাখি উড়ছে।", english:"The bird is flying.", arabic:"الطَّائِرُ يَطِيرُ", words:["الطَّائِرُ","يَطِيرُ"]},
-      {bangla:"সে বই পড়ছে।", english:"She is reading a book.", arabic:"هِيَ تَقْرَأُ كِتَابًا", words:["هِيَ","تَقْرَأُ","كِتَابًا"]},
-      {bangla:"আমার নাম জন।", english:"My name is John.", arabic:"اِسْمِي جُون", words:["اِسْمِي","جُون"]},
-      {bangla:"তুমি কোথায় যাচ্ছ?", english:"Where are you going?", arabic:"أَيْنَ ذَاهِبٌ؟", words:["أَيْنَ","ذَاهِبٌ"]},
-      {bangla:"সে হাসছে।", english:"He is smiling.", arabic:"هُوَ يَبْتَسِمُ", words:["هُوَ","يَبْتَسِمُ"]},
-      {bangla:"আমি পানি খাচ্ছি।", english:"I am drinking water.", arabic:"أَنَا أَشْرَبُ الْمَاءَ", words:["أَنَا","أَشْرَبُ","الْمَاءَ"]},
-      {bangla:"আমরা খেলতে যাচ্ছি।", english:"We are going to play.", arabic:"نَحْنُ ذَاهِبُونَ لِلَّعِبِ", words:["نَحْنُ","ذَاهِبُونَ","لِلَّعِبِ"]},
-      {bangla:"সে গান শুনছে।", english:"He is listening to a song.", arabic:"هُوَ يَسْمَعُ أُغْنِيَةً", words:["هُوَ","يَسْمَعُ","أُغْنِيَةً"]},
-      {bangla:"আমরা বাইরে যাচ্ছি।", english:"We are going outside.", arabic:"نَحْنُ نَخْرُجُ إِلَى الْخَارِجِ", words:["نَحْنُ","نَخْرُجُ","إِلَى","الْخَارِجِ"]},
-      {bangla:"সে পানি খাচ্ছে।", english:"She is drinking water.", arabic:"هِيَ تَشْرَبُ الْمَاءَ", words:["هِيَ","تَشْرَبُ","الْمَاءَ"]},
-      {bangla:"ছেলেটি ঘুমাচ্ছে।", english:"The boy is sleeping.", arabic:"الْوَلَدُ نَائِمٌ", words:["الْوَلَدُ","نَائِمٌ"]},
-      {bangla:"ছাত্রী পড়ছে।", english:"The student is studying.", arabic:"الطَّالِبَةُ تَدْرُسُ", words:["الطَّالِبَةُ","تَدْرُسُ"]},
-      {bangla:"আমি খেলতে যাচ্ছি।", english:"I am going to play.", arabic:"أَنَا ذَاهِبٌ لِلَّعِبِ", words:["أَنَا","ذَاهِبٌ","لِلَّعِبِ"]},
-      {bangla:"তুমি গান গাইছ।", english:"You are singing.", arabic:"أَنْتَ تُغَنِّي", words:["أَنْتَ","تُغَنِّي"]},
-      {bangla:"সে দৌড়াচ্ছে।", english:"He is running.", arabic:"هُوَ يَرْكُضُ", words:["هُوَ","يَرْكُضُ"]},
-      {bangla:"আমরা বই পড়ছি।", english:"We are reading books.", arabic:"نَحْنُ نَقْرَأُ الْكُتُبَ", words:["نَحْنُ","نَقْرَأُ","الْكُتُبَ"]}
-      // এখানে একইভাবে আরও ৮০টি বাক্য যোগ করতে হবে
-    ]
-  },
-  {
-    name: "মধ্যম বাক্য",
-    sentences: [
-      {bangla:"আমি একটি বই পড়ছি।", english:"I am reading a book.", arabic:"أَنَا أَقْرَأُ كِتَابًا", words:["أَنَا","أَقْرَأُ","كِتَابًا"]},
-      {bangla:"সে একটি টেবিল কিনেছে।", english:"He bought a table.", arabic:"هُوَ اشْتَرَى طَاوِلَةً", words:["طَاوِلَةً","هُوَ","اشْتَرَى"]},
-      {bangla:"আমরা বাজারে যাচ্ছি।", english:"We are going to the market.", arabic:"نَحْنُ ذَاهِبُونَ إِلَى السُّوقِ", words:["نَحْنُ","ذَاهِبُونَ","إِلَى","السُّوقِ"]},
-      {bangla:"তুমি আমাকে সাহায্য করছ।", english:"You are helping me.", arabic:"أَنْتَ تُسَاعِدُنِي", words:["أَنْتَ","تُسَاعِدُنِي"]},
-      {bangla:"ছেলেটি ফুটবল খেলছে।", english:"The boy is playing football.", arabic:"الْوَلَدُ يَلْعَبُ كُرَةَ الْقَدَمِ", words:["الْوَلَدُ","يَلْعَبُ","كُرَةَ","الْقَدَمِ"]},
-      {bangla:"আমরা সিনেমা দেখতে যাচ্ছি।", english:"We are going to watch a movie.", arabic:"نَحْنُ ذَاهِبُونَ لِمُشَاهَدَةِ فِيلْمٍ", words:["نَحْنُ","ذَاهِبُونَ","لِمُشَاهَدَةِ","فِيلْمٍ"]},
-      {bangla:"সে নতুন গান শিখছে।", english:"She is learning a new song.", arabic:"هِيَ تَتَعَلَّمُ أُغْنِيَةً جَدِيدَةً", words:["هِيَ","تَتَعَلَّمُ","أُغْنِيَةً","جَدِيدَةً"]},
-      {bangla:"আমি চা খাচ্ছি।", english:"I am drinking tea.", arabic:"أَنَا أَشْرَبُ الشَّايَ", words:["أَنَا","أَشْرَبُ","الشَّايَ"]},
-      {bangla:"তুমি স্কুলে যাচ্ছ।", english:"You are going to school.", arabic:"أَنْتَ ذَاهِبٌ إِلَى الْمَدْرَسَةِ", words:["أَنْتَ","ذَاهِبٌ","إِلَى","الْمَدْرَسَةِ"]},
-      {bangla:"আমরা কুকুর খেলাচ্ছি।", english:"We are playing with the dog.", arabic:"نَحْنُ نَلْعَبُ مَعَ الْكَلْبِ", words:["نَحْنُ","نَلْعَبُ","مَعَ","الْكَلْبِ"]}
-      // আরও ৯০টি বাক্য একই প্যাটার্নে যোগ করতে হবে
-    ]
-  },
-  
-  {
-    name: "কঠিন বাক্য",
-    sentences: [
-      {bangla:"মেয়ে খেলা করছে।", english:"The girl is playing.", arabic:"الْبِنْتُ تَلْعَبُ", words:["الْبِنْتُ","تَلْعَبُ"]},
-      {bangla:"ছেলে দৌড়াচ্ছে।", english:"The boy is running.", arabic:"الْوَلَدُ يَرْكُضُ", words:["يَرْكُضُ","الْوَلَدُ"]},
-      {bangla:"শিক্ষক ক্লাসে পড়াচ্ছেন।", english:"The teacher is teaching in the class.", arabic:"الْمُعَلِّمُ يُدَرِّسُ فِي الْفَصْلِ", words:["الْمُعَلِّمُ","يُدَرِّسُ","فِي","الْفَصْلِ"]},
-      {bangla:"ছাত্ররা বই পড়ছে।", english:"The students are reading books.", arabic:"الطُّلاَّبُ يَقْرَأُونَ الْكُتُبَ", words:["الطُّلاَّبُ","يَقْرَأُونَ","الْكُتُبَ"]},
-      {bangla:"বৃক্ষ পাতায় ঝুলছে।", english:"Leaves are hanging on the tree.", arabic:"الأَوْرَاقُ مُتَدَلِّيَةٌ عَلَى الشَّجَرَةِ", words:["الأَوْرَاقُ","مُتَدَلِّيَةٌ","عَلَى","الشَّجَرَةِ"]},
-      {bangla:"ছেলেটি দ্রুত দৌড়াচ্ছে।", english:"The boy is running fast.", arabic:"الْوَلَدُ يَرْكُضُ سَرِيعًا", words:["الْوَلَدُ","يَرْكُضُ","سَرِيعًا"]},
-      {bangla:"সে তার কাজ সম্পন্ন করছে।", english:"He is completing his work.", arabic:"هُوَ يُكْمِلُ عَمَلَهُ", words:["هُوَ","يُكْمِلُ","عَمَلَهُ"]},
-      {bangla:"আমরা প্রকৃতি ভ্রমণ করছি।", english:"We are exploring nature.", arabic:"نَحْنُ نَسْتَكْشِفُ الطَّبِيعَةَ", words:["نَحْنُ","نَسْتَكْشِفُ","الطَّبِيعَةَ"]},
-      {bangla:"ছাত্রীরা পরীক্ষা দিচ্ছে।", english:"The students are taking the exam.", arabic:"الطُّلاَّبُ يَخْتَبِرُونَ", words:["الطُّلاَّبُ","يَخْتَبِرُونَ"]},
-      {bangla:"সে কঠোর পরিশ্রম করছে।", english:"He is working hard.", arabic:"هُوَ يَعْمَلُ جَادًّا", words:["هُوَ","يَعْمَلُ","جَادًّا"]}
-      // আরও ৯০টি বাক্য যোগ করতে হবে
-    ]
-  }
+// Database with Semantic Categories
+const verbs = [
+    { id: "eat", en: "eat", enPast: "ate", category: "food", arPast: "أَكَلَ", arPres: "يَأْكُلُ", arOrder: "كُلْ" },
+    { id: "drink", en: "drink", enPast: "drank", category: "liquid", arPast: "شَرِبَ", arPres: "يَشْرَبُ", arOrder: "اِشْرَبْ" },
+    { id: "read", en: "read", enPast: "read", category: "media", arPast: "قَرَأَ", arPres: "يَقْرَأُ", arOrder: "اِقْرَأْ" },
+    { id: "write", en: "write", enPast: "wrote", category: "media", arPast: "كَتَبَ", arPres: "يَكْتُبُ", arOrder: "اُكْتُبْ" },
+    { id: "open", en: "open", enPast: "opened", category: "tool", arPast: "فَتَحَ", arPres: "يَفْتَحُ", arOrder: "اِفْتَحْ" }
 ];
 
+const subjects = {
+    boy: { ar: "الْوَلَدُ", en: "the boy", person: "3", gender: "m" },
+    girl: { ar: "الْبِنْتُ", en: "the girl", person: "3", gender: "f" },
+    teacher: { ar: "الْمُعَلِّمُ", en: "the teacher", person: "3", gender: "m" },
+    i: { ar: "أَنَا", en: "I", person: "1", gender: "m" },
+    we: { ar: "نَحْنُ", en: "we", person: "1", gender: "m" },
+    youM: { ar: "أَنْتَ", en: "you", person: "2", gender: "m" }
+};
 
-let currentCategory = 0;
-let currentSentence = 0;
-let points = 0;
+const objects = {
+    apple: { ar: "التُّفَّاحَةَ", en: "the apple", category: "food", isSuffix: false },
+    fish: { ar: "السَّمَكَةَ", en: "the fish", category: "food", isSuffix: false },
+    water: { ar: "الْمَاءَ", en: "the water", category: "liquid", isSuffix: false },
+    juice: { ar: "الْعَصِيرَ", en: "the juice", category: "liquid", isSuffix: false },
+    book: { ar: "الْكِتَابَ", en: "the book", category: "media", isSuffix: false },
+    lesson: { ar: "الدَّرْسَ", en: "the lesson", category: "media", isSuffix: false },
+    door: { ar: "الْبَابَ", en: "the door", category: "tool", isSuffix: false },
+    it: { ar_m: "هُ", ar_f: "هَا", en: "it", category: "universal", isSuffix: true },
+    me: { ar: "نِي", en: "me", category: "universal", isSuffix: true },
+    us: { ar: "نَا", en: "us", category: "universal", isSuffix: true }
+};
 
-const topText = document.getElementById('topText');
-const wordsDiv = document.getElementById('words');
-const sentenceDiv = document.getElementById('sentence');
-const indicator = document.getElementById('indicator');
-const nextBtn = document.getElementById('nextBtn');
-const scoreDiv = document.getElementById('score');
-const categorySelect = document.getElementById('categorySelect');
+// Initial Load
+window.onload = () => {
+    const vSelect = document.getElementById('verb');
+    verbs.forEach(v => {
+        let opt = document.createElement('option');
+        opt.value = v.id;
+        opt.textContent = `${v.en} (${v.arPast})`;
+        vSelect.appendChild(opt);
+    });
+    filterObjects(); // Filter objects based on first verb
+    updateUI();
+};
 
-// Populate category select
-categories.forEach((c,i)=>{
-  const option = document.createElement('option');
-  option.value = i;
-  option.innerText = c.name;
-  categorySelect.appendChild(option);
-});
-
-// Load sentence
-function loadSentence(catIdx, sentIdx){
-  indicator.innerHTML = "";
-  nextBtn.style.display = 'none';
-  sentenceDiv.innerHTML = "";
-  wordsDiv.innerHTML = "";
-
-  const q = categories[catIdx].sentences[sentIdx];
-  topText.innerHTML = `<b>বাংলা:</b> ${q.bangla} <br> <b>English:</b> ${q.english}`;
-
-  shuffleArray(q.words.slice()).forEach((w,i)=>{
-    const span = document.createElement('span');
-    span.className = 'word';
-    span.id = 'word'+i;
-    span.draggable = true;
-    span.innerText = w;
-    span.style.background = randomColor();
-    span.addEventListener('dragstart', e => 
-      e.dataTransfer.setData('text', e.target.id)
-    );
-    wordsDiv.appendChild(span);
-  });
+// Logic to prevent "Eating a Book"
+function filterObjects() {
+    const vKey = document.getElementById('verb').value;
+    const v = verbs.find(x => x.id === vKey);
+    const objSelect = document.getElementById('object');
+    const currentVal = objSelect.value;
+    
+    objSelect.innerHTML = "";
+    for (let key in objects) {
+        if (objects[key].category === v.category || objects[key].category === "universal") {
+            let opt = document.createElement('option');
+            opt.value = key;
+            opt.textContent = `${objects[key].en} (${objects[key].ar_m || objects[key].ar})`;
+            objSelect.appendChild(opt);
+        }
+    }
 }
 
-// Drag & drop
-sentenceDiv.addEventListener('dragover', e => e.preventDefault());
+function updateUI() {
+    const tense = document.getElementById('tense').value;
+    const mode = document.getElementById('mode').value;
+    const s = subjects[document.getElementById('subject').value];
+    const v = verbs.find(x => x.id === document.getElementById('verb').value);
+    const o = objects[document.getElementById('object').value];
 
-sentenceDiv.addEventListener('drop', e => {
-  e.preventDefault();
-  const id = e.dataTransfer.getData('text');
-  const draggedWord = document.getElementById(id);
-  sentenceDiv.appendChild(draggedWord);
+    let arVerb = "";
+    let enFinal = "";
+    let arFinal = "";
 
-  const q = categories[currentCategory].sentences[currentSentence];
-
-  if(sentenceDiv.children.length === q.words.length){
-    const formed = Array.from(sentenceDiv.children).map(c=>c.innerText).join(' ');
-    if(formed === q.arabic){
-      indicator.style.color = 'green';
-      indicator.innerHTML = `সঠিক! +1 পয়েন্ট`;
-      points++;
-      scoreDiv.innerText = `পয়েন্ট: ${points}`;
-      nextBtn.style.display = 'inline-block';
+    // --- ARABIC VERB CONJUGATION ---
+    if (tense === "past") {
+        arVerb = v.arPast;
+        if (s.en === "I") arVerb = v.arPast.slice(0, -1) + "ْتُ";
+        if (s.en === "we") arVerb = v.arPast.slice(0, -1) + "ْنَا";
+        if (s.gender === "f" && s.person === "3") arVerb = v.arPast + "َتْ";
+    } else if (tense === "present") {
+        arVerb = v.arPres;
+        if (s.en === "I") arVerb = "أَ" + v.arPres.slice(1);
+        if (s.en === "we") arVerb = "نَ" + v.arPres.slice(1);
     } else {
-      indicator.style.color = 'red';
-      indicator.innerHTML = `ভুল! আবার চেষ্টা করুন।`;
+        arVerb = v.arOrder; // Order mode
     }
-  }
-});
 
-// Next sentence
-nextBtn.addEventListener('click', ()=>{
-  currentSentence++;
-  if(currentSentence >= categories[currentCategory].sentences.length){
-    currentSentence = 0;
-    alert("এই ক্যাটাগরির সব বাক্য শেষ। অন্য ক্যাটাগরি নির্বাচন করুন।");
-  }
-  loadSentence(currentCategory, currentSentence);
-});
+    // Negation/Interrogation
+    arFinal = arVerb;
+    if (mode === "negative") arFinal = (tense === "past" ? "مَا " : "لَا ") + arFinal;
+    if (mode === "interrogative") arFinal = "هَلْ " + arFinal;
 
-// Change category
-categorySelect.addEventListener('change', e=>{
-  currentCategory = parseInt(e.target.value);
-  currentSentence = 0;
-  loadSentence(currentCategory, currentSentence);
-});
+    // Object Suffixing
+    if (o.isSuffix) {
+        let suffix = (o.en === "it") ? (s.gender === "f" ? o.ar_f : o.ar_m) : o.ar;
+        arFinal = arFinal.trim() + suffix;
+    } else {
+        arFinal += " " + (s.person !== "2" || tense !== "order" ? s.ar + " " : "") + o.ar;
+    }
 
-// Initial load
-loadSentence(currentCategory, currentSentence);
+    // --- ENGLISH CONSTRUCTION ---
+    const is3rd = (s.person === "3");
+    if (tense === "order") {
+        enFinal = (mode === "negative" ? "Don't " : "") + v.en + " " + o.en + "!";
+    } else if (tense === "past") {
+        if (mode === "negative") enFinal = `${s.en} did not ${v.en} ${o.en}`;
+        else if (mode === "interrogative") enFinal = `Did ${s.en.toLowerCase()} ${v.en} ${o.en}?`;
+        else enFinal = `${s.en} ${v.enPast} ${o.en}`;
+    } else { // Present
+        if (mode === "negative") {
+            enFinal = `${s.en} ${is3rd ? "does not" : "do not"} ${v.en} ${o.en}`;
+        } else if (mode === "interrogative") {
+            enFinal = `${is3rd ? "Does" : "Do"} ${s.en.toLowerCase()} ${v.en} ${o.en}?`;
+        } else {
+            enFinal = `${s.en} ${is3rd ? v.en + "s" : v.en} ${o.en}`;
+        }
+    }
+
+    document.getElementById('ar-out').textContent = arFinal;
+    document.getElementById('en-out').textContent = enFinal.charAt(0).toUpperCase() + enFinal.slice(1);
+}
