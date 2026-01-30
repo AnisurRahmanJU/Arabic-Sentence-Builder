@@ -1,74 +1,92 @@
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans:ital,wght@0,400;1,400&display=swap');
+/* 1. Reset and Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 
 body {
-    background-color: #f8f9fa;
+    background-color: #f0f2f5; /* Light gray background to make the card pop */
     font-family: 'Noto Sans', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
     margin: 0;
+    padding: 20px;
 }
 
-/* The Flashcard Container */
+/* 2. The Flashcard Container */
 .flashcard-container {
-    background-color: #ffffff;
-    width: 90%;
+    background-color: #ffffff !important; /* Pure white card */
     max-width: 900px;
-    padding: 100px 40px;
-    border-radius: 40px;
-    text-align: center;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
-    border: 1px solid #efefef;
+    margin: 50px auto; /* Centers the card on the page */
+    padding: 80px 40px;
+    border-radius: 30px; /* Rounded corners */
+    text-align: center; /* Centers all text inside */
+    
+    /* Strong 3D Shadow for Flashcard Effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
     position: relative;
+    overflow: hidden;
 }
 
-/* Top accent bar */
-.flashcard-container::before {
-    content: "";
+/* 3. Decorative Top Stripe */
+.card-stripe {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 12px;
+    height: 10px;
     background: linear-gradient(90deg, #0d6efd, #20c997);
-    border-radius: 40px 40px 0 0;
 }
 
-/* BIG Arabic Text */
+/* 4. Arabic Text - Massive & Centered */
 .ar-display {
     font-family: 'Amiri', serif !important;
-    font-size: 6rem !important; /* Extremely Big */
+    font-size: 5.5rem !important; /* Extra Big */
     font-weight: 700;
-    color: #212529;
-    margin: 0 auto 30px auto;
+    color: #1a1a1a;
+    margin-bottom: 30px;
     direction: rtl;
-    line-height: 1.4;
+    line-height: 1.5;
     display: block;
 }
 
-/* Elegant Center Divider */
+/* 5. Center Divider */
 .divider {
     height: 2px;
     width: 150px;
-    background-color: #dee2e6;
-    margin: 40px auto;
+    background: #dee2e6;
+    margin: 40px auto; /* Centered */
 }
 
-/* BIG English Text */
+/* 6. English Text - Large & Centered */
 .en-display {
     font-size: 2.2rem !important;
     color: #0d6efd;
     font-weight: 300;
     font-style: italic;
-    margin: 0 auto;
     display: block;
 }
 
-/* Responsive for Mobile */
+/* 7. Controls Panel (The selectors area) */
+.control-panel {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.label-en {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Responsive Scaling for Mobile */
 @media (max-width: 768px) {
     .ar-display { font-size: 3.5rem !important; }
-    .en-display { font-size: 1.6rem !important; }
-    .flashcard-container { padding: 60px 20px; }
+    .en-display { font-size: 1.5rem !important; }
+    .flashcard-container { padding: 40px 20px; }
 }
