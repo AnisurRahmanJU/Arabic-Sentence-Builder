@@ -1,31 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Noto+Sans:wght@400;700&display=swap');
+/* Ensure fonts load from Google CDN */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Noto Sans', sans-serif;
+    color: #333;
+}
 
-body { background-color: #f4f7f6; font-family: 'Noto Sans', sans-serif; }
-.main-card { border-radius: 15px; border-top: 6px solid #27ae60; }
-.label-en { font-size: 0.8rem; font-weight: bold; color: #7f8c8d; text-transform: uppercase; margin-bottom: 5px; }
-
-.output-container {
-    background: #2c3e50;
-    color: white;
-    padding: 60px 20px;
+.main-card {
     border-radius: 12px;
+}
+
+.label-en {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+/* FLASHCARD STYLING */
+.flashcard-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 60px 30px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-header-stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(90deg, #0d6efd, #0dcaf0);
 }
 
 .ar-display {
     font-family: 'Amiri', serif;
-    font-size: 4.2rem;
-    margin-bottom: 15px;
+    font-size: 4.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
     direction: rtl;
-    min-height: 140px;
+    line-height: 1.4;
+}
+
+.en-divider {
+    height: 2px;
+    width: 80px;
+    background: #e0e0e0;
+    margin: 20px auto;
 }
 
 .en-display {
-    font-size: 1.6rem;
-    color: #3498db;
+    font-size: 1.75rem;
+    color: #0d6efd;
+    font-weight: 300;
     font-style: italic;
 }
 
-.form-select { border-radius: 10px; border: 2px solid #eee; transition: 0.3s; }
-.form-select:focus { border-color: #27ae60; box-shadow: none; }
+/* FORM STYLING */
+.form-select {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .ar-display { font-size: 3rem; }
+    .en-display { font-size: 1.4rem; }
+}
