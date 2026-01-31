@@ -1,167 +1,169 @@
 /* ==================================================
-   GITHUB PAGES SMART RESPONSIVE CSS
-   Arabic Sentence Builder – 2026
+   Arabic Sentence Builder
+   GitHub Pages FINAL OVERRIDE CSS
+   Engine v2026
 ================================================== */
+
+/* ---------- RESET + FORCE OVERRIDES ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box !important;
+}
+
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+}
 
 /* ---------- ROOT VARIABLES ---------- */
 :root {
     --primary: #0d6efd;
     --accent: #20c997;
+    --dark: #212529;
     --bg: #f4f6f9;
-    --card-bg: #ffffff;
-    --text-main: #212529;
-    --text-muted: #6c757d;
-    --radius-xl: 36px;
-    --radius-lg: 24px;
-    --radius-md: 14px;
+    --card: #ffffff;
+    --muted: #6c757d;
 }
 
-/* ---------- GLOBAL RESET ---------- */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 16px;
-}
-
+/* ---------- BODY ---------- */
 body {
-    margin: 0;
     background: var(--bg) !important;
-    font-family: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--text-main);
+    font-family: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+    color: var(--dark) !important;
     line-height: 1.6;
 }
 
 /* ---------- HEADER ---------- */
 header {
-    background: linear-gradient(135deg, #0d6efd, #084298);
+    background: linear-gradient(135deg, #1f2933, #111827) !important;
+    color: #fff !important;
+    padding: 28px 0 !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,.35);
 }
 
 header h2 {
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-size: clamp(1.4rem, 3vw, 2.2rem) !important;
+    font-weight: 700;
+    margin: 0;
 }
 
 .dev-credit {
-    font-size: 0.85rem; 
-    opacity: 0.9;
+    font-size: .9rem;
+    color: #9ee7ff;
 }
 
-/* ---------- CONTAINER FIX (BOOTSTRAP OVERRIDE) ---------- */
+/* ---------- BADGE ---------- */
+.badge {
+    font-size: .75rem !important;
+    padding: 8px 14px !important;
+    border-radius: 999px !important;
+}
+
+/* ---------- CONTAINER FIX ---------- */
 .container {
     max-width: 1200px !important;
 }
 
 /* ---------- CONTROL PANEL ---------- */
 .control-panel {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: clamp(16px, 3vw, 28px);
-    margin-bottom: 32px;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-    border: none;
+    background: var(--card) !important;
+    border-radius: 24px !important;
+    padding: 28px !important;
+    margin-top: -40px !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.08) !important;
+    position: relative;
+    z-index: 10;
 }
 
 .label-en {
-    font-size: 0.7rem;
+    font-size: .7rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--text-muted);
+    letter-spacing: .08em;
+    color: var(--muted);
     text-transform: uppercase;
     margin-bottom: 6px;
     display: block;
 }
 
+/* ---------- SELECT ---------- */
 .form-select {
-    border-radius: var(--radius-md) !important;
-    padding: 10px 12px;
-    font-size: 0.9rem;
+    border-radius: 14px !important;
+    padding: 12px 14px !important;
+    font-size: .95rem !important;
+    box-shadow: none !important;
 }
 
-/* ---------- FLASHCARD CORE ---------- */
+/* ---------- FLASHCARD ---------- */
 .flashcard-container {
-    background: var(--card-bg);
-    border-radius: var(--radius-xl);
-    padding: clamp(28px, 6vw, 80px) clamp(20px, 5vw, 60px);
+    background: var(--card) !important;
+    border-radius: 36px !important;
+    padding: clamp(30px, 6vw, 80px) !important;
     max-width: 960px;
-    margin: 40px auto;
+    margin: 50px auto !important;
     text-align: center;
     position: relative;
-    box-shadow: 0 22px 55px rgba(0,0,0,0.08);
+    box-shadow: 0 28px 65px rgba(0,0,0,.1) !important;
     overflow: hidden;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.flashcard-container:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 32px 70px rgba(0,0,0,0.12);
 }
 
 /* ---------- TOP STRIPE ---------- */
 .card-stripe {
     position: absolute;
     top: 0;
-    inset-inline: 0;
+    left: 0;
+    right: 0;
     height: 10px;
     background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 
-/* ---------- ARABIC DISPLAY ---------- */
+/* ---------- ARABIC OUTPUT ---------- */
 .ar-display {
     font-family: 'Amiri', serif !important;
-    font-weight: 700;
-    direction: rtl;
-    text-align: center;
-    line-height: 1.35;
-    color: var(--text-main);
-
-    /* Smart fluid typography */
-    font-size: clamp(2.4rem, 6vw, 6.5rem) !important;
-
-    margin-bottom: clamp(12px, 3vw, 24px);
+    font-weight: 700 !important;
+    direction: rtl !important;
+    text-align: center !important;
+    font-size: clamp(2.6rem, 6vw, 6.8rem) !important;
+    line-height: 1.35 !important;
+    margin-bottom: 22px !important;
+    color: var(--dark) !important;
 }
 
 /* ---------- DIVIDER ---------- */
 .divider {
-    width: clamp(90px, 16vw, 170px);
+    width: clamp(90px, 16vw, 180px);
     height: 2px;
     background: #dee2e6;
-    margin: clamp(20px, 4vw, 40px) auto;
+    margin: 30px auto;
 }
 
-/* ---------- ENGLISH DISPLAY ---------- */
+/* ---------- ENGLISH OUTPUT ---------- */
 .en-display {
-    font-size: clamp(1.1rem, 3vw, 2.3rem) !important;
-    color: var(--primary);
-    font-weight: 300;
-    font-style: italic;
+    font-size: clamp(1.1rem, 3vw, 2.4rem) !important;
+    font-weight: 300 !important;
+    font-style: italic !important;
+    color: var(--primary) !important;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    font-size: 0.85rem;
-    padding-bottom: 20px;
-    color: var(--text-muted);
+    text-align: center;
+    font-size: .85rem;
+    color: var(--muted);
+    padding: 40px 0 20px;
 }
 
-/* ---------- MOBILE REFINEMENT ---------- */
+/* ---------- MOBILE ---------- */
 @media (max-width: 576px) {
-    header h2 {
-        font-size: 1.1rem;
-    }
-
-    .badge {
-        font-size: 0.7rem;
-    }
-
-    .form-select {
-        font-size: 0.85rem;
+    .control-panel {
+        padding: 20px !important;
+        margin-top: -20px !important;
     }
 
     .flashcard-container {
-        margin: 24px 12px;
-        border-radius: 26px;
+        margin: 30px 12px !important;
+        border-radius: 28px !important;
     }
 }
