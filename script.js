@@ -53,9 +53,14 @@ const objects = {
     suq: { en: "the market", ar: "السُّوقِ", type: "place" },
     obj_me: { en: "me", ar: { suffix: "نِي" }, type: "pronoun" },
     obj_us: { en: "us", ar: { suffix: "نَا" }, type: "pronoun" },
+    obj_you_m: { en: "you (m)", ar: { suffix: "كَ" }, type: "pronoun" },
+    obj_you_f: { en: "you (f)", ar: { suffix: "كِ" }, type: "pronoun" },
+    obj_you_pm: { en: "you (pl.m)", ar: { suffix: "كُمْ" }, type: "pronoun" },
+    obj_you_pf: { en: "you (pl.f)", ar: { suffix: "كُنَّ" }, type: "pronoun" },
     obj_him: { en: "him", ar: { suffix: "هُ" }, type: "pronoun" },
     obj_her: { en: "her", ar: { suffix: "هَا" }, type: "pronoun" },
-    obj_them_m: { en: "them (m)", ar: { suffix: "هُمْ" }, type: "pronoun" }
+    obj_them_m: { en: "them (m)", ar: { suffix: "هُمْ" }, type: "pronoun" },
+    obj_them_f: { en: "them (f)", ar: { suffix: "هُنَّ" }, type: "pronoun" }
 };
 
 const preps = {
