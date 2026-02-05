@@ -30,7 +30,6 @@ const verbalOnlyEls = document.querySelectorAll(".verbal-only");
 ---------------------------- */
 const subjects = {
   ana_m: { en: "I (Both)", ar: "أَنَا", person: "1s", gender: "m", gender: "f", number: "s" },
- // ana_f: { en: "I (female)", ar: "أَنَا", person: "1s", gender: "f", number: "s" },
   anta: { en: "You (male)", ar: "أَنْتَ", person: "2sm", gender: "m", number: "s" },
   anti: { en: "You (female)", ar: "أَنْتِ", person: "2sf", gender: "f", number: "s" },
   huwa: { en: "He", ar: "هُوَ", person: "3sm", gender: "m", number: "s" },
