@@ -1,8 +1,6 @@
 /* =====================================
    Arabic Sentence Builder – script.js
    Developer: Md. Anisur Rahman
-   Optimized Full Version
-   Fixed: Order + Negative + Nominal "You are" English
 ===================================== */
 
 const elements = {
