@@ -148,14 +148,14 @@ const prepositions = {
 };
 
 const objects = {
-    madrasa: { en: "school", ar: "الْمَدْرَسَةِ", type: "noun" },
-    bayt:    { en: "house", ar: "الْبَيْتِ", type: "noun" },
-    balad:   { en: "country", ar: "الْبَلَدِ", type: "noun" },
+    madrasa: { en: "the school", ar: "الْمَدْرَسَةِ", type: "noun" },
+    bayt:    { en: "the house", ar: "الْبَيْتِ", type: "noun" },
+    balad:   { en: "the country", ar: "الْبَلَدِ", type: "noun" },
     rice:    { en: "rice", ar: "الأَرُزَّ", type: "noun" },
     apple:   { en: "apple", ar: "التُّفَّاحَةَ", type: "noun" },
     water:   { en: "water", ar: "الْمَاءَ", type: "noun" },
-    table:   { en: "table", ar: "الطَّاوِلَةِ", type: "noun" },
-    chair:   { en: "chair", ar: "الْكُرْسِيِّ", type: "noun" },
+    table:   { en: "the table", ar: "الطَّاوِلَةِ", type: "noun" },
+    chair:   { en: "the chair", ar: "الْكُرْسِيِّ", type: "noun" },
     book:    { en: "book", ar: "الْكِتَابَ", type: "noun" }, 
     obj_me:       { en: "me", suffix: "نِي", type: "pronoun" },
     obj_us:       { en: "us", suffix: "نَا", type: "pronoun" },
