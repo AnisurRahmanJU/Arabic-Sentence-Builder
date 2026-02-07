@@ -14,6 +14,7 @@ const elements = {
     verbalFields: document.querySelectorAll(".verbal-only")
 };
 
+
 const subjects = {
     huwa:     { en: "He", ar: "هُوَ", p: "3sm", n: "s" },
     huma_m:   { en: "They (2m)", ar: "هُمَا", p: "3dm", n: "d" },
@@ -30,6 +31,7 @@ const subjects = {
     ana:      { en: "I", ar: "أَنَا", p: "1s", n: "s" },
     nahnu:    { en: "We", ar: "نَحْنُ", p: "1p", n: "p" }
 };
+
 
 const verbs = {
     nasara: { en: "help", pastEn: "helped", ar: {
@@ -134,6 +136,7 @@ const verbs = {
     }}
 };
 
+
 const prepositions = {
     none: { en: "", ar: "" },
     ila:  { en: "to", ar: "إِلَى" },
@@ -141,6 +144,7 @@ const prepositions = {
     ala:  { en: "on", ar: "عَلَى" },
     bi:   { en: "with/by", ar: "بِـ" }
 };
+
 
 const objects = {
     madrasa: { en: "the school", ar: "الْمَدْرَسَةِ", type: "noun" },
@@ -161,6 +165,7 @@ const objects = {
     obj_you_m:    { en: "you (m)", suffix: "كَ", type: "pronoun" }
 };
 
+
 const predicates = {
     muslim: {
         en: "Muslim",
@@ -173,6 +178,7 @@ const predicates = {
         }
     }
 };
+
 
 function build() {
     const s = subjects[elements.subj.value];
@@ -241,6 +247,7 @@ function build() {
         elements.enOut.textContent = enRes;
     }
 }
+
 
 function init() {
     const fill = (el, data) => { el.innerHTML = ""; for (let k in data) el.add(new Option(data[k].en, k)); };
