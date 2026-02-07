@@ -1,8 +1,3 @@
-/* =====================================
-   Arabic Sentence Builder – script.js
-   Full Conjugation & Comprehensive Objects
-===================================== */
-
 const elements = {
     type: document.getElementById("sentenceType"),
     subj: document.getElementById("subject"),
