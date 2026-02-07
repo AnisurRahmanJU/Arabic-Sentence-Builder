@@ -163,7 +163,7 @@ const objects = {
     obj_her:      { en: "her", suffix: "هَا", type: "pronoun" },
     obj_them:     { en: "them", suffix: "هُمْ", type: "pronoun" },
     obj_you_m:    { en: "you (m)", suffix: "كَ", type: "pronoun" }
-};
+}; 
 
 const predicates = {
     muslim: {
