@@ -1,3 +1,4 @@
+
 const elements = {
     type: document.getElementById("sentenceType"),
     subj: document.getElementById("subject"),
@@ -140,30 +141,70 @@ const verbs = {
 
 const prepositions = {
     none: { en: "", ar: "" },
-    ila:  { en: "to", ar: "إِلَى" },
-    fi:   { en: "in", ar: "فِي" },
-    ala:  { en: "on", ar: "عَلَى" },
-    bi:   { en: "with/by", ar: "بِـ" }
+    ila:   { en: "to",        ar: "إِلَى" },
+    fi:    { en: "in",        ar: "فِي" },
+    ala:   { en: "on",        ar: "عَلَى" },
+    bi:    { en: "with/by",   ar: "بِـ" },
+    min:   { en: "from",      ar: "مِنْ" },
+    an:    { en: "about",     ar: "عَنْ" },
+    li:    { en: "for/to",    ar: "لِـ" },
+    ilaA:  { en: "until",     ar: "إِلَىٰ" },
+    inda:  { en: "at",        ar: "عِنْدَ" },
+    ma:    { en: "with",      ar: "مَعَ" },
+    bayna: { en: "between",  ar: "بَيْنَ" },
+    tahta: { en: "under",    ar: "تَحْتَ" },
+    fawqa: { en: "above",    ar: "فَوْقَ" }
+
 };
 
-
 const objects = {
-    madrasa: { en: "the school", ar: "الْمَدْرَسَةِ", type: "noun" },
-    bayt:    { en: "the house", ar: "الْبَيْتِ", type: "noun" },
-    balad:   { en: "the country", ar: "الْبَلَدِ", type: "noun" },
-    rice:    { en: "rice", ar: "الأَرُزَّ", type: "noun" },
-    apple:   { en: "apple", ar: "التُّفَّاحَةَ", type: "noun" },
-    water:   { en: "water", ar: "الْمَاءَ", type: "noun" },
-    table:   { en: "the table", ar: "الطَّاوِلَةِ", type: "noun" },
-    chair:   { en: "the chair", ar: "الْكُرْسِيِّ", type: "noun" },
-    book:    { en: "the book", ar: "الْكِتَابَ", type: "noun" }, 
+    // enter / exit /go
+    madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", type: "noun" },
+    ghurfah: { en: "the room", ar: "الْغُرْفَةَ", type: "noun" },
+    bait:    { en: "the house", ar: "الْبَيْتَ", type: "noun" },
+    masjid:  { en: "the mosque", ar: "الْمَسْجِدَ", type: "noun" },
+    // read / write
+    jaridah: { en: "the newspaper", ar: "الْجَرِيدَةَ", type: "noun" },
+    qissah:  { en: "the story", ar: "الْقِصَّةَ", type: "noun" },
+    // sit
+    makan:   { en: "the place", ar: "الْمَكَانَ", type: "noun" },
+    ard:     { en: "the ground", ar: "الْأَرْضَ", type: "noun" },
+    chair:   { en: "the chair", ar: "الْكُرْسِيَّ", type: "noun" },
+    // study
+    lugha:   { en: "the language", ar: "اللُّغَةَ", type: "noun" },
+    kitab:   { en: "the book", ar: "الْكِتَابَ", type: "noun" },
+    imtihan: { en: "the exam", ar: "الِامْتِحَانَ", type: "noun" },
+    // wash
+    yadayn:  { en: "the hands", ar: "الْيَدَيْنِ", type: "noun" },
+    wajh:    { en: "the face", ar: "الْوَجْهَ", type: "noun" },
+    // wear
+    qamis:   { en: "the shirt", ar: "الْقَمِيصَ", type: "noun" },
+    libas:   { en: "the clothes", ar: "اللِّبَاسَ", type: "noun" },
+    // ride
+    darrajah:{ en: "the bicycle", ar: "الدَّرَّاجَةَ", type: "noun" },
+    safinah: { en: "the ship", ar: "السَّفِينَةَ", type: "noun" },
+    // look / see
+    shay:    { en: "the thing", ar: "الشَّيْءَ", type: "noun" },
+    samaa:   { en: "the sky", ar: "السَّمَاءَ", type: "noun" },
+    // hear
+    kalam:   { en: "the speech", ar: "الْكَلَامَ", type: "noun" },
+    khabar:  { en: "the news", ar: "الْخَبَرَ", type: "noun" },
+    // know
+    ism:     { en: "the name", ar: "الِاسْمَ", type: "noun" },
+    haqiqah: { en: "the truth", ar: "الْحَقِيقَةَ", type: "noun" },
+    //Pronouns
     obj_me:       { en: "me", suffix: "نِي", type: "pronoun" },
     obj_us:       { en: "us", suffix: "نَا", type: "pronoun" },
     obj_it:       { en: "it", suffix: "هُ", type: "pronoun" },
     obj_him:      { en: "him", suffix: "هُ", type: "pronoun" },
     obj_her:      { en: "her", suffix: "هَا", type: "pronoun" },
     obj_them:     { en: "them", suffix: "هُمْ", type: "pronoun" },
-    obj_you_m:    { en: "you (m)", suffix: "كَ", type: "pronoun" }
+    obj_you_m:    { en: "you (m sg)", suffix: "كَ",   type: "pronoun" },
+    obj_you_f:    { en: "you (f sg)", suffix: "كِ",   type: "pronoun" },
+    obj_you_d:    { en: "you (dual)", suffix: "كُمَا", type: "pronoun" },
+    obj_you_pm:   { en: "you (m pl)", suffix: "كُمْ", type: "pronoun" },
+    obj_you_pf:   { en: "you (f pl)", suffix: "كُنَّ", type: "pronoun" }
+
 }; 
 
 const predicates = {
