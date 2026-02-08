@@ -144,17 +144,11 @@ const prepositions = {
     ila:   { en: "to",        ar: "إِلَى" },
     fi:    { en: "in",        ar: "فِي" },
     ala:   { en: "on",        ar: "عَلَى" },
-    bi:    { en: "with/by",   ar: "بِـ" },
     min:   { en: "from",      ar: "مِنْ" },
     an:    { en: "about",     ar: "عَنْ" },
-    li:    { en: "for/to",    ar: "لِـ" },
-    ilaA:  { en: "until",     ar: "إِلَىٰ" },
     inda:  { en: "at",        ar: "عِنْدَ" },
     ma:    { en: "with",      ar: "مَعَ" },
     bayna: { en: "between",  ar: "بَيْنَ" },
-    tahta: { en: "under",    ar: "تَحْتَ" },
-    fawqa: { en: "above",    ar: "فَوْقَ" }
-
 };
 
 const objects = {
