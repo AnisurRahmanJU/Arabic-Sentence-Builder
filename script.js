@@ -1,4 +1,3 @@
-
 const elements = {
     type: document.getElementById("sentenceType"),
     subj: document.getElementById("subject"),
@@ -14,7 +13,6 @@ const elements = {
     nominalFields: document.querySelectorAll(".nominal-only"),
     verbalFields: document.querySelectorAll(".verbal-only")
 };
-
 
 const subjects = {
     huwa:      { en: "He", ar: "هُوَ", p: "3sm", n: "s" },
@@ -33,9 +31,8 @@ const subjects = {
     nahnu:     { en: "We", ar: "نَحْنُ", p: "1p", n: "p" }
 };
 
-
 const verbs = {
-   dhahaba: { en: "go", pastEn: "went", ar: {
+    dhahaba: { en: "go", pastEn: "went", ar: {
         past: { "3sm":"ذَهَبَ", "3dm":"ذَهَبَا", "3pm":"ذَهَبُوا", "3sf":"ذَهَبَتْ", "3df":"ذَهَبَتَا", "3pf":"ذَهَبْنَ", "2sm":"ذَهَبْتَ", "2dm":"ذَهَبْتُمَا", "2pm":"ذَهَبْتُمْ", "2sf":"ذَهَبْتِ", "2df":"ذَهَبْتُمَا", "2pf":"ذَهَبْتُنَّ", "1s":"ذَهَبْتُ", "1p":"ذَهَبْنَا" },
         present: { "3sm":"يَذْهَبُ", "3dm":"يَذْهَبَانِ", "3pm":"يَذْهَبُونَ", "3sf":"تَذْهَبُ", "3df":"تَذْهَبَانِ", "3pf":"يَذْهَبْنَ", "2sm":"تَذْهَبُ", "2dm":"تَذْهَبَانِ", "2pm":"تَذْهَبُونَ", "2sf":"تَذْهَبِينَ", "2df":"تَذْهَبَانِ", "2pf":"تَذْهَبْنَ", "1s":"أَذْهَبُ", "1p":"نَذْهَبُ" },
         order: { "2sm":"اِذْهَبْ", "2sf":"اِذْهَبِي", "2dm":"اِذْهَبَا", "2df":"اِذْهَبَا", "2pm":"اِذْهَبُوا", "2pf":"اِذْهَبْنَ" }
@@ -45,7 +42,6 @@ const verbs = {
         present: { "3sm":"يَنْصُرُ", "3dm":"يَنْصُرَانِ", "3pm":"يَنْصُرُونَ", "3sf":"تَنْصُرُ", "3df":"تَنْصُرَانِ", "3pf":"يَنْصُرْنَ", "2sm":"تَنْصُرُ", "2dm":"تَنْصُرَانِ", "2pm":"تَنْصُرُونَ", "2sf":"تَنْصُرِينَ", "2df":"تَنْصُرَانِ", "2pf":"تَنْصُرْنَ", "1s":"أَنْصُرُ", "1p":"نَنْصُرُ" },
         order: { "2sm":"اُنْصُرْ", "2sf":"اُنْصُرِي", "2dm":"اُنْصُرَا", "2df":"اُنْصُرَا", "2pm":"اُنْصُرُوا", "2pf":"اُنْصُرْنَ" }
     }},
-    
     akala: { en: "eat", pastEn: "ate", ar: {
         past: { "3sm":"أَكَلَ", "3dm":"أَكَلَا", "3pm":"أَكَلُوا", "3sf":"أَكَلَتْ", "3df":"أَكَلَتَا", "3pf":"أَكَلْنَ", "2sm":"أَكَلْتَ", "2dm":"أَكَلْتُمَا", "2pm":"أَكَلْتُمْ", "2sf":"أَكَلْتِ", "2df":"أَكَلْتُمَا", "2pf":"أَكَلْتُنَّ", "1s":"أَكَلْتُ", "1p":"أَكَلْنَا" },
         present: { "3sm":"يَأْكُلُ", "3dm":"يَأْكُلَانِ", "3pm":"يَأْكُلُونَ", "3sf":"تَأْكُلُ", "3df":"تَأْكُلَانِ", "3pf":"يَأْكُلْنَ", "2sm":"تَأْكُلُ", "2dm":"تَأْكُلَانِ", "2pm":"تَأْكُلُونَ", "2sf":"تَأْكُلِينَ", "2df":"تَأْكُلَانِ", "2pf":"تَأْكُلْنَ", "1s":"آكُلُ", "1p":"نَأْكُلُ" },
@@ -138,68 +134,57 @@ const verbs = {
     }}
 };
 
-
 const prepositions = {
     none: { en: "", ar: "" },
-    ila:   { en: "to",        ar: "إِلَى" },
-    fi:    { en: "in",        ar: "فِي" },
-    ala:   { en: "on",        ar: "عَلَى" },
-    min:   { en: "from",      ar: "مِنْ" },
-    an:    { en: "about",     ar: "عَنْ" },
-    inda:  { en: "at",        ar: "عِنْدَ" },
-    ma:    { en: "with",      ar: "مَعَ" },
-    bayna: { en: "between",  ar: "بَيْنَ" },
+    ila:  { en: "to",  ar: "إِلَى" },
+    fi:   { en: "in",  ar: "فِي" },
+    ala:  { en: "on",  ar: "عَلَى" },
+    min:  { en: "from", ar: "مِنْ" },
+    an:   { en: "about", ar: "عَنْ" },
+    inda: { en: "at",   ar: "عِنْدَ" },
+    mAa:   { en: "with", ar: "مَعَ" },
 };
 
+// Updated objects: 'ar' is Nasb (Direct Obj), 'arJer' is Genitive (After Prep)
 const objects = {
-    // enter / exit /go
-    madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", type: "noun" },
-    ghurfah: { en: "the room", ar: "الْغُرْفَةَ", type: "noun" },
-    bait:    { en: "the house", ar: "الْبَيْتَ", type: "noun" },
-    masjid:  { en: "the mosque", ar: "الْمَسْجِدَ", type: "noun" },
-    // read / write
-    jaridah: { en: "the newspaper", ar: "الْجَرِيدَةَ", type: "noun" },
-    qissah:  { en: "the story", ar: "الْقِصَّةَ", type: "noun" },
-    // sit
-    makan:   { en: "the place", ar: "الْمَكَانَ", type: "noun" },
-    ard:     { en: "the ground", ar: "الْأَرْضَ", type: "noun" },
-    chair:   { en: "the chair", ar: "الْكُرْسِيَّ", type: "noun" },
-    // study
-    lugha:   { en: "the language", ar: "اللُّغَةَ", type: "noun" },
-    kitab:   { en: "the book", ar: "الْكِتَابَ", type: "noun" },
-    imtihan: { en: "the exam", ar: "الِامْتِحَانَ", type: "noun" },
-    // wash
-    yadayn:  { en: "the hands", ar: "الْيَدَيْنِ", type: "noun" },
-    wajh:    { en: "the face", ar: "الْوَجْهَ", type: "noun" },
-    // wear
-    qamis:   { en: "the shirt", ar: "الْقَمِيصَ", type: "noun" },
-    libas:   { en: "the clothes", ar: "اللِّبَاسَ", type: "noun" },
-    // ride
-    darrajah:{ en: "the bicycle", ar: "الدَّرَّاجَةَ", type: "noun" },
-    safinah: { en: "the ship", ar: "السَّفِينَةَ", type: "noun" },
-    // look / see
-    shay:    { en: "the thing", ar: "الشَّيْءَ", type: "noun" },
-    samaa:   { en: "the sky", ar: "السَّمَاءَ", type: "noun" },
-    // hear
-    kalam:   { en: "the speech", ar: "الْكَلَامَ", type: "noun" },
-    khabar:  { en: "the news", ar: "الْخَبَرَ", type: "noun" },
-    // know
-    ism:     { en: "the name", ar: "الِاسْمَ", type: "noun" },
-    haqiqah: { en: "the truth", ar: "الْحَقِيقَةَ", type: "noun" },
-    //Pronouns
+    madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "noun" },
+    ghurfah: { en: "the room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "noun" },
+    bait:    { en: "the house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "noun" },
+    masjid:  { en: "the mosque", ar: "الْمَسْجِدَ", arJer: "الْمَسْجِدِ", type: "noun" },
+    jaridah: { en: "the newspaper", ar: "الْجَرِيدَةَ", arJer: "الْجَرِيدَةِ", type: "noun" },
+    qissah:  { en: "the story", ar: "الْقِصَّةَ", arJer: "الْقِصَّةِ", type: "noun" },
+    makan:   { en: "the place", ar: "الْمَكَانَ", arJer: "الْمَكَانِ", type: "noun" },
+    ard:     { en: "the ground", ar: "الْأَرْضَ", arJer: "الْأَرْضِ", type: "noun" },
+    chair:   { en: "the chair", ar: "الْكُرْسِيَّ", arJer: "الْكُرْسِيِّ", type: "noun" },
+    lugha:   { en: "the language", ar: "اللُّغَةَ", arJer: "اللُّغَةِ", type: "noun" },
+    kitab:   { en: "the book", ar: "الْكِتَابَ", arJer: "الْكِتَابِ", type: "noun" },
+    imtihan: { en: "the exam", ar: "الِامْتِحَانَ", arJer: "الِامْتِحَانِ", type: "noun" },
+    yadayn:  { en: "the hands", ar: "الْيَدَيْنِ", arJer: "الْيَدَيْنِ", type: "noun" },
+    wajh:    { en: "the face", ar: "الْوَجْهَ", arJer: "الْوَجْهِ", type: "noun" },
+    qamis:   { en: "the shirt", ar: "الْقَمِيصَ", arJer: "الْقَمِيصِ", type: "noun" },
+    libas:   { en: "the clothes", ar: "اللِّبَاسَ", arJer: "اللِّبَاسِ", type: "noun" },
+    darrajah:{ en: "the bicycle", ar: "الدَّرَّاجَةَ", arJer: "الدَّرَّاجَةِ", type: "noun" },
+    safinah: { en: "the ship", ar: "السَّفِينَةَ", arJer: "السَّفِينَةِ", type: "noun" },
+    shay:    { en: "the thing", ar: "الشَّيْءَ", arJer: "الشَّيْءِ", type: "noun" },
+    samaa:   { en: "the sky", ar: "السَّمَاءَ", arJer: "السَّمَاءِ", type: "noun" },
+    kalam:   { en: "the speech", ar: "الْكَلَامَ", arJer: "الْكَلَامِ", type: "noun" },
+    khabar:  { en: "the news", ar: "الْخَبَرَ", arJer: "الْخَبَرِ", type: "noun" },
+    ism:     { en: "the name", ar: "الِاسْمَ", arJer: "الِاسْمِ", type: "noun" },
+    haqiqah: { en: "the truth", ar: "الْحَقِيقَةَ", arJer: "الْحَقِيقَةِ", type: "noun" },
     obj_me:       { en: "me", suffix: "نِي", type: "pronoun" },
     obj_us:       { en: "us", suffix: "نَا", type: "pronoun" },
     obj_it:       { en: "it", suffix: "هُ", type: "pronoun" },
     obj_him:      { en: "him", suffix: "هُ", type: "pronoun" },
     obj_her:      { en: "her", suffix: "هَا", type: "pronoun" },
-    obj_them:     { en: "them", suffix: "هُمْ", type: "pronoun" },
-    obj_you_m:    { en: "you (m sg)", suffix: "كَ",   type: "pronoun" },
-    obj_you_f:    { en: "you (f sg)", suffix: "كِ",   type: "pronoun" },
+    obj_them_m:   { en: "them(m)", suffix: "هُمْ", type: "pronoun" },
+    obj_them_f:   { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
+    obj_them_d:   { en: "them(dual)", suffix: "هُمَا", type: "pronoun" },
+    obj_you_m:    { en: "you (m sg)", suffix: "كَ", type: "pronoun" },
+    obj_you_f:    { en: "you (f sg)", suffix: "كِ", type: "pronoun" },
     obj_you_d:    { en: "you (dual)", suffix: "كُمَا", type: "pronoun" },
     obj_you_pm:   { en: "you (m pl)", suffix: "كُمْ", type: "pronoun" },
     obj_you_pf:   { en: "you (f pl)", suffix: "كُنَّ", type: "pronoun" }
-
-}; 
+};
 
 const predicates = {
     muslim: {
@@ -221,11 +206,9 @@ function build() {
     if (type === "nominal") {
         const p = predicates[elements.pred.value];
         elements.arOut.textContent = `${s.ar} ${p.ar[s.p]}`;
-        
         let verbBe = "is";
         if (s.p === "1s") verbBe = "am";
         else if (s.n !== "s" || s.p.startsWith("2")) verbBe = "are";
-
         let predEn = (s.n !== "s") ? p.en + "s" : p.en;
         elements.enOut.textContent = `${s.en} ${verbBe} ${predEn}.`;
     } else {
@@ -240,57 +223,44 @@ function build() {
             return;
         }
 
-        // Default Verb selection
         let vAr = v.ar[tense][s.p] || v.ar[tense]["3sm"] || "";
-        
         let arRes = [];
         
-        // Handle Logic for ORDER specifically
         if (tense === "order") {
             if (mode === "negative") {
-                // Negative Order (Prohibition/Nahy) 
-                // Uses "La" + Present Tense (Jussive-style)
-                // Note: v.ar.present[s.p] is used as a base for Prohibition
                 let prohibitionVerb = v.ar.present[s.p];
-                // For simplified logic: removing 'n' for dual/plurals to simulate Jussive if needed, 
-                // but here we follow your example provided.
                 if (s.p === "2sm") prohibitionVerb = prohibitionVerb.slice(0,-1) + "ْ"; 
                 if (s.p === "2sf") prohibitionVerb = prohibitionVerb.replace("ينَ", "ي");
                 if (s.p === "2dm" || s.p === "2df") prohibitionVerb = prohibitionVerb.replace("انِ", "ا");
                 if (s.p === "2pm") prohibitionVerb = prohibitionVerb.replace("ونَ", "وا");
-                
                 arRes.push("لَا", s.ar, prohibitionVerb);
-            } 
-            else if (mode === "interrogative") {
-                // Interrogative Order -> Hal + Subject + Present Verb
+            } else if (mode === "interrogative") {
                 arRes.push("هَلْ", s.ar, v.ar.present[s.p]);
-            } 
-            else {
-                // Affirmative Order (Amr)
+            } else {
                 arRes.push(vAr);
             }
-        } 
-        else {
-            // Logic for Past and Present
+        } else {
             if (mode === "interrogative") arRes.push("هَلْ");
             arRes.push(s.ar);
             if (mode === "negative") arRes.push(tense === "past" ? "مَا" : "لَا");
             arRes.push(vAr);
         }
 
-        // Handling Object suffixes or separate words
         if (obj.type === "pronoun") {
-            // Append suffix to the last word added (the verb)
             let last = arRes.pop();
             arRes.push(last + obj.suffix);
         } else {
-            if (prep.ar !== "") arRes.push(prep.ar, obj.ar);
-            else arRes.push(obj.ar);
+            if (prep.ar !== "") {
+                // If preposition exists, use the Genitive (arJer) form
+                arRes.push(prep.ar, obj.arJer || obj.ar);
+            } else {
+                // Otherwise, use the Accusative (ar) form
+                arRes.push(obj.ar);
+            }
         }
         
         elements.arOut.textContent = arRes.join(" ");
 
-        // ENGLISH OUTPUT LOGIC
         let enRes = "";
         const isSing3rd = (s.p === "3sm" || s.p === "3sf");
         const doDoes = isSing3rd ? "does" : "do";
@@ -300,16 +270,14 @@ function build() {
             if (mode === "negative") enRes = `${s.en} did not ${v.en} ${prepEn}${obj.en}.`;
             else if (mode === "interrogative") enRes = `Did ${s.en} ${v.en} ${prepEn}${obj.en}?`;
             else enRes = `${s.en} ${v.pastEn} ${prepEn}${obj.en}.`;
-        } 
-        else if (tense === "present") {
+        } else if (tense === "present") {
             if (mode === "negative") enRes = `${s.en} ${doDoes} not ${v.en} ${prepEn}${obj.en}.`;
             else if (mode === "interrogative") enRes = `${doDoes.charAt(0).toUpperCase() + doDoes.slice(1)} ${s.en} ${v.en} ${prepEn}${obj.en}?`;
             else {
                 let verbS = isSing3rd ? (v.en === "go" ? "goes" : v.en + "s") : v.en;
                 enRes = `${s.en} ${verbS} ${prepEn}${obj.en}.`;
             }
-        } 
-        else if (tense === "order") {
+        } else if (tense === "order") {
             if (mode === "negative") enRes = `Do not ${v.en} ${prepEn}${obj.en}!`;
             else if (mode === "interrogative") enRes = `Do ${s.en.toLowerCase()} ${v.en} ${prepEn}${obj.en}?`;
             else enRes = `${v.en.toUpperCase()} ${prepEn}${obj.en}!`;
@@ -325,9 +293,7 @@ function init() {
     fill(elements.pred, predicates);
     fill(elements.obj, objects);
     fill(elements.prep, prepositions);
-    
     [elements.subj, elements.pred, elements.verb, elements.obj, elements.prep, elements.tense, elements.mode].forEach(el => el.onchange = build);
-    
     elements.type.onchange = () => {
         const isNom = elements.type.value === "nominal";
         elements.nominalFields.forEach(f => f.style.display = isNom ? "block" : "none");
