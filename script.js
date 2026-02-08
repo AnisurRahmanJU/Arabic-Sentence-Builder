@@ -145,7 +145,6 @@ const prepositions = {
     mAa:   { en: "with", ar: "مَعَ" },
 };
 
-// Updated objects: 'ar' is Nasb (Direct Obj), 'arJer' is Genitive (After Prep)
 const objects = {
     madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "noun" },
     ghurfah: { en: "the room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "noun" },
@@ -182,7 +181,7 @@ const objects = {
     obj_him:      { en: "him", suffix: "هُ", type: "pronoun" },
     obj_her:      { en: "her", suffix: "هَا", type: "pronoun" },
     obj_them_m:   { en: "them(m)", suffix: "هُمْ", type: "pronoun" },
-    obj_them_f:   { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
+    obj_them_f:   { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
     obj_them_d:   { en: "them(dual)", suffix: "هُمَا", type: "pronoun" },
     obj_you_m:    { en: "you (m sg)", suffix: "كَ", type: "pronoun" },
     obj_you_f:    { en: "you (f sg)", suffix: "كِ", type: "pronoun" },
@@ -251,21 +250,33 @@ function build() {
             arRes.push(vAr);
         }
 
+        // Logic for Pronouns vs Nouns
         if (obj.type === "pronoun") {
-            let last = arRes.pop();
-            arRes.push(last + obj.suffix);
-        } else {
             if (prep.ar !== "") {
-                // If preposition exists, use the Genitive (arJer) form
+                // Suffix pronoun attaches to the PREPOSITION
+                let prepBase = prep.ar;
+                // Grammar fix: ala and ila change Alif Maqsura to Ya before pronoun
+                if (prepBase === "عَلَى") prepBase = "عَلَيْ";
+                if (prepBase === "إِلَى") prepBase = "إِلَيْ";
+                
+                arRes.push(prepBase + obj.suffix);
+            } else {
+                // Suffix pronoun attaches to the VERB
+                let last = arRes.pop();
+                arRes.push(last + obj.suffix);
+            }
+        } else {
+            // Logic for Nouns
+            if (prep.ar !== "") {
                 arRes.push(prep.ar, obj.arJer || obj.ar);
             } else {
-                // Otherwise, use the Accusative (ar) form
                 arRes.push(obj.ar);
             }
         }
         
         elements.arOut.textContent = arRes.join(" ");
 
+        // English Output Logic
         let enRes = "";
         const isSing3rd = (s.p === "3sm" || s.p === "3sf");
         const doDoes = isSing3rd ? "does" : "do";
