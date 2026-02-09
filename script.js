@@ -148,10 +148,10 @@ const prepositions = {
 };
 
 const objects = {
-    madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "noun" },
-    ghurfah: { en: "the room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "noun" },
-    bait:    { en: "the house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "noun" },
-    masjid:  { en: "the mosque", ar: "الْمَسْجِدَ", arJer: "الْمَسْجِدِ", type: "noun" },
+    madrasah: { en: "school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "noun" },
+    ghurfah: { en: "room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "noun" },
+    bait:    { en: "house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "noun" },
+    masjid:  { en: "mosque", ar: "الْمَسْجِدَ", arJer: "الْمَسْجِدِ", type: "noun" },
     jaridah: { en: "the newspaper", ar: "الْجَرِيدَةَ", arJer: "الْجَرِيدَةِ", type: "noun" },
     qissah:  { en: "the story", ar: "الْقِصَّةَ", arJer: "الْقِصَّةِ", type: "noun" },
     makan:   { en: "the place", ar: "الْمَكَانَ", arJer: "الْمَكَانِ", type: "noun" },
