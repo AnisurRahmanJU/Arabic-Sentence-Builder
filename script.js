@@ -1,3 +1,4 @@
+
 const elements = {
     type: document.getElementById("sentenceType"),
     subj: document.getElementById("subject"),
@@ -15,7 +16,7 @@ const elements = {
 };
 
 const subjects = {
-    anisur:    { en: "Anisur", ar: "أَنِيسٌ", p: "3sm", n: "s" },
+    anis:    { en: "Anis", ar: "أَنِيسٌ", p: "3sm", n: "s" },
     huwa:      { en: "He", ar: "هُوَ", p: "3sm", n: "s" },
     huma_m:    { en: "They (2m)", ar: "هُمَا", p: "3dm", n: "d" },
     hum:       { en: "They (m)", ar: "هُمْ", p: "3pm", n: "p" },
@@ -136,8 +137,9 @@ const verbs = {
 };
 
 const prepositions = {
-    ila:  { en: "to",  ar: "إِلَى" }, // Put this first to auto-load
-    none: { en: "None", ar: "" },      // Keep 'none' as an option
+    // Keep 'none' as an option
+    none: { en: "None", ar: "" },
+    ila:  { en: "to",  ar: "إِلَى" }, // Put this first to auto-loa
     fi:   { en: "in",  ar: "فِي" },
     ala:  { en: "on",  ar: "عَلَى" },
     min:  { en: "from", ar: "مِنْ" },
