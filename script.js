@@ -142,7 +142,8 @@ const prepositions = {
     min:  { en: "from", ar: "مِنْ" },
     an:   { en: "about", ar: "عَنْ" },
     inda: { en: "at",   ar: "عِنْدَ" },
-    mAa:   { en: "with", ar: "مَعَ" },
+    mAa:  { en: "with", ar: "مَعَ" },
+    bi:   { en: "by/with", ar: "بِ" }
 };
 
 const objects = {
@@ -203,6 +204,25 @@ const predicates = {
     }
 };
 
+// --- Your Helper Function ---
+function getJarSuffix(suffix) {
+    const jarMap = {
+        "هُ": "هِ",
+        "هَا": "هَا",
+        "هُمْ": "هِمْ",
+        "هُنَّ": "هِنَّ",
+        "هُمَا": "هِمَا",
+        "كَ": "كَ",
+        "كِ": "كِ",
+        "كُمْ": "كُمْ",
+        "كُنَّ": "كُنَّ",
+        "كُمَا": "كُمَا",
+        "نِي": "نِي",
+        "نَا": "نَا"
+    };
+    return jarMap[suffix] || suffix;
+}
+
 function build() {
     const s = subjects[elements.subj.value];
     const type = elements.type.value;
@@ -250,23 +270,28 @@ function build() {
             arRes.push(vAr);
         }
 
-        // Logic for Pronouns vs Nouns
+        // --- Logic for Pronouns vs Nouns with getJarSuffix ---
         if (obj.type === "pronoun") {
             if (prep.ar !== "") {
-                // Suffix pronoun attaches to the PREPOSITION
                 let prepBase = prep.ar;
-                // Grammar fix: ala and ila change Alif Maqsura to Ya before pronoun
+                // Alif Maqsura logic
                 if (prepBase === "عَلَى") prepBase = "عَلَيْ";
                 if (prepBase === "إِلَى") prepBase = "إِلَيْ";
                 
-                arRes.push(prepBase + obj.suffix);
+                // Determine if the suffix should change based on the preposition
+                let finalSuffix = obj.suffix;
+                const causesJarShift = ["عَلَيْ", "إِلَيْ", "بِ", "فِي"];
+                
+                if (causesJarShift.includes(prepBase)) {
+                    finalSuffix = getJarSuffix(obj.suffix);
+                }
+
+                arRes.push(prepBase + finalSuffix);
             } else {
-                // Suffix pronoun attaches to the VERB
                 let last = arRes.pop();
                 arRes.push(last + obj.suffix);
             }
         } else {
-            // Logic for Nouns
             if (prep.ar !== "") {
                 arRes.push(prep.ar, obj.arJer || obj.ar);
             } else {
