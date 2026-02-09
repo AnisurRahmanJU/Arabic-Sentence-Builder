@@ -138,7 +138,7 @@ const verbs = {
 
 const prepositions = {
     // Keep 'none' as an option
-    none: { en: "None", ar: "" },
+    none: { en: " ", ar: "" },
     ila:  { en: "to",  ar: "إِلَى" }, // Put this first to auto-loa
     fi:   { en: "in",  ar: "فِي" },
     ala:  { en: "on",  ar: "عَلَى" },
