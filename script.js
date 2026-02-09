@@ -15,6 +15,7 @@ const elements = {
 };
 
 const subjects = {
+    anisur:    { en: "Anisur", ar: "أَنِيسٌ", p: "3sm", n: "s" },
     huwa:      { en: "He", ar: "هُوَ", p: "3sm", n: "s" },
     huma_m:    { en: "They (2m)", ar: "هُمَا", p: "3dm", n: "d" },
     hum:       { en: "They (m)", ar: "هُمْ", p: "3pm", n: "p" },
@@ -54,7 +55,7 @@ const verbs = {
     }},
     kataba: { en: "write", pastEn: "wrote", ar: {
         past: { "3sm":"كَتَبَ", "3dm":"كَتَبَا", "3pm":"كَتَبُوا", "3sf":"كَتَبَتْ", "3df":"كَتَبَتَا", "3pf":"كَتَبْنَ", "2sm":"كَتَبْتَ", "2dm":"كَتَبْتُمَا", "2pm":"كَتَبْتُمْ", "2sf":"كَتَبْتِ", "2df":"كَتَبْتُمَا", "2pf":"كَتَبْتُنَّ", "1s":"كَتَبْتُ", "1p":"كَتَبْنَا" },
-        present: { "3sm":"يَكْتُبُ", "3dm":"يَكْتُبَانِ", "3pm":"يَكْتُبُونَ", "3sf":"تَكْتُبُ", "3df":"تَكْتُبَانِ", "3pf":"يَكْتُبْنَ", "2sm":"تَكْتُبُ", "2dm":"تَكْتُبَانِ", "2pm":"تَكْتُبُونَ", "2sf":"تَكْتُبِينَ", "2df":"تَكْتُبَانِ", "2pf":"تَكْتُبْنَ", "1s":"أَكْتُبُ", "1p":"نَكْتُبُ" },
+        present: { "3sm":"يَكْتُبُ", "3dm":"يَكْتُبَانِ", "3pm":"يَكْتُبُونَ", "3sf":"تَكْتُبُ", "3df":"تَكْتُبَانِ", "3pf":"يَكْتُبْنَ", "2sm":"تَكْتُبُ", "2dm":"تَكْتُبَانِ", "2pm":"تَكْتُبُونَ", "2sf":"تَكْتُبِينَ", "2df":"تَكْتُبَانِ", "2pf":"تَكْتُبْنَ", "1s":"أكْتُبُ", "1p":"نَكْتُبُ" },
         order: { "2sm":"اُكْتُبْ", "2sf":"اُكْتُبِي", "2dm":"اُكْتُبَا", "2df":"اُكْتُبَا", "2pm":"اُكْتُبُوا", "2pf":"اُكْتُبْنَ" }
     }},
     fataha: { en: "open", pastEn: "opened", ar: {
@@ -158,11 +159,11 @@ const objects = {
     chair:   { en: "the chair", ar: "الْكُرْسِيَّ", arJer: "الْكُرْسِيِّ", type: "noun" },
     lugha:   { en: "the language", ar: "اللُّغَةَ", arJer: "اللُّغَةِ", type: "noun" },
     kitab:   { en: "the book", ar: "الْكِتَابَ", arJer: "الْكِتَابِ", type: "noun" },
-    ruzz:     { en: "rice", ar: "الرُّزَّ", arJer: "الرُّزِّ", type: "noun" },
-    maa:      { en: "water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
-    tuffah:   { en: "apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
-    walad:    { en: "the boy", ar: "الْوَلَدَ", arJer: "الْوَلَدِ", type: "noun" },
-    bint:     { en: "the girl", ar: "الْبِنْتَ", arJer: "الْبِنْتِ", type: "noun" },
+    ruzz:      { en: "rice", ar: "الرُّزَّ", arJer: "الرُّزِّ", type: "noun" },
+    maa:       { en: "water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
+    tuffah:    { en: "apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
+    walad:     { en: "the boy", ar: "الْوَلَدَ", arJer: "الْوَلَدِ", type: "noun" },
+    bint:      { en: "the girl", ar: "الْبِنْتَ", arJer: "الْبِنْتِ", type: "noun" },
     imtihan: { en: "the exam", ar: "الِامْتِحَانَ", arJer: "الِامْتِحَانِ", type: "noun" },
     yadayn:  { en: "the hands", ar: "الْيَدَيْنِ", arJer: "الْيَدَيْنِ", type: "noun" },
     wajh:    { en: "the face", ar: "الْوَجْهَ", arJer: "الْوَجْهِ", type: "noun" },
@@ -176,19 +177,19 @@ const objects = {
     khabar:  { en: "the news", ar: "الْخَبَرَ", arJer: "الْخَبَرِ", type: "noun" },
     ism:     { en: "the name", ar: "الِاسْمَ", arJer: "الِاسْمِ", type: "noun" },
     haqiqah: { en: "the truth", ar: "الْحَقِيقَةَ", arJer: "الْحَقِيقَةِ", type: "noun" },
-    obj_me:       { en: "me", suffix: "نِي", type: "pronoun" },
-    obj_us:       { en: "us", suffix: "نَا", type: "pronoun" },
-    obj_it:       { en: "it", suffix: "هُ", type: "pronoun" },
-    obj_him:      { en: "him", suffix: "هُ", type: "pronoun" },
-    obj_her:      { en: "her", suffix: "هَا", type: "pronoun" },
-    obj_them_m:   { en: "them(m)", suffix: "هُمْ", type: "pronoun" },
-    obj_them_f:   { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
-    obj_them_d:   { en: "them(dual)", suffix: "هُمَا", type: "pronoun" },
-    obj_you_m:    { en: "you (m sg)", suffix: "كَ", type: "pronoun" },
-    obj_you_f:    { en: "you (f sg)", suffix: "كِ", type: "pronoun" },
-    obj_you_d:    { en: "you (dual)", suffix: "كُمَا", type: "pronoun" },
-    obj_you_pm:   { en: "you (m pl)", suffix: "كُمْ", type: "pronoun" },
-    obj_you_pf:   { en: "you (f pl)", suffix: "كُنَّ", type: "pronoun" }
+    obj_me:        { en: "me", suffix: "نِي", type: "pronoun" },
+    obj_us:        { en: "us", suffix: "نَا", type: "pronoun" },
+    obj_it:        { en: "it", suffix: "هُ", type: "pronoun" },
+    obj_him:       { en: "him", suffix: "هُ", type: "pronoun" },
+    obj_her:       { en: "her", suffix: "هَا", type: "pronoun" },
+    obj_them_m:    { en: "them(m)", suffix: "هُمْ", type: "pronoun" },
+    obj_them_f:    { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
+    obj_them_d:    { en: "them(dual)", suffix: "هُمَا", type: "pronoun" },
+    obj_you_m:     { en: "you (m sg)", suffix: "كَ", type: "pronoun" },
+    obj_you_f:     { en: "you (f sg)", suffix: "كِ", type: "pronoun" },
+    obj_you_d:     { en: "you (dual)", suffix: "كُمَا", type: "pronoun" },
+    obj_you_pm:    { en: "you (m pl)", suffix: "كُمْ", type: "pronoun" },
+    obj_you_pf:    { en: "you (f pl)", suffix: "كُنَّ", type: "pronoun" }
 };
 
 const predicates = {
@@ -204,21 +205,12 @@ const predicates = {
     }
 };
 
-// --- Your Helper Function ---
 function getJarSuffix(suffix) {
     const jarMap = {
         "هُ": "هِ",
-        "هَا": "هَا",
         "هُمْ": "هِمْ",
         "هُنَّ": "هِنَّ",
-        "هُمَا": "هِمَا",
-        "كَ": "كَ",
-        "كِ": "كِ",
-        "كُمْ": "كُمْ",
-        "كُنَّ": "كُنَّ",
-        "كُمَا": "كُمَا",
-        "نِي": "نِي",
-        "نَا": "نَا"
+        "هُمَا": "هِمَا"
     };
     return jarMap[suffix] || suffix;
 }
@@ -250,6 +242,10 @@ function build() {
         let vAr = v.ar[tense][s.p] || v.ar[tense]["3sm"] || "";
         let arRes = [];
         
+        // INTERROGATIVE PARTICLE (Hal)
+        if (mode === "interrogative") arRes.push("هَلْ");
+
+        // VERBAL STRUCTURE: [Negation] -> Verb -> [Pronoun Obj] -> Subject
         if (tense === "order") {
             if (mode === "negative") {
                 let prohibitionVerb = v.ar.present[s.p];
@@ -257,41 +253,36 @@ function build() {
                 if (s.p === "2sf") prohibitionVerb = prohibitionVerb.replace("ينَ", "ي");
                 if (s.p === "2dm" || s.p === "2df") prohibitionVerb = prohibitionVerb.replace("انِ", "ا");
                 if (s.p === "2pm") prohibitionVerb = prohibitionVerb.replace("ونَ", "وا");
-                arRes.push("لَا", s.ar, prohibitionVerb);
-            } else if (mode === "interrogative") {
-                arRes.push("هَلْ", s.ar, v.ar.present[s.p]);
+                arRes.push("لَا", prohibitionVerb);
             } else {
                 arRes.push(vAr);
             }
         } else {
-            if (mode === "interrogative") arRes.push("هَلْ");
-            arRes.push(s.ar);
             if (mode === "negative") arRes.push(tense === "past" ? "مَا" : "لَا");
             arRes.push(vAr);
         }
 
-        // --- Logic for Pronouns vs Nouns with getJarSuffix ---
+        // Logic for Pronouns vs Nouns with getJarSuffix
         if (obj.type === "pronoun") {
             if (prep.ar !== "") {
+                // Preposition exists: Push subject, then preposition+suffix
+                arRes.push(s.ar);
                 let prepBase = prep.ar;
-                // Alif Maqsura logic
                 if (prepBase === "عَلَى") prepBase = "عَلَيْ";
                 if (prepBase === "إِلَى") prepBase = "إِلَيْ";
                 
-                // Determine if the suffix should change based on the preposition
                 let finalSuffix = obj.suffix;
                 const causesJarShift = ["عَلَيْ", "إِلَيْ", "بِ", "فِي"];
-                
-                if (causesJarShift.includes(prepBase)) {
-                    finalSuffix = getJarSuffix(obj.suffix);
-                }
-
+                if (causesJarShift.includes(prepBase)) finalSuffix = getJarSuffix(obj.suffix);
                 arRes.push(prepBase + finalSuffix);
             } else {
-                let last = arRes.pop();
-                arRes.push(last + obj.suffix);
+                // Direct Object Pronoun: Attach to VERB, then push subject
+                let verbWithSuffix = arRes.pop() + obj.suffix;
+                arRes.push(verbWithSuffix, s.ar);
             }
         } else {
+            // Noun Object: Push Subject first, then Noun
+            arRes.push(s.ar);
             if (prep.ar !== "") {
                 arRes.push(prep.ar, obj.arJer || obj.ar);
             } else {
