@@ -136,8 +136,8 @@ const verbs = {
 };
 
 const prepositions = {
-    none: { en: "", ar: "" },
-    ila:  { en: "to",  ar: "إِلَى" },
+    ila:  { en: "to",  ar: "إِلَى" }, // Put this first to auto-load
+    none: { en: "None", ar: "" },      // Keep 'none' as an option
     fi:   { en: "in",  ar: "فِي" },
     ala:  { en: "on",  ar: "عَلَى" },
     min:  { en: "from", ar: "مِنْ" },
@@ -318,21 +318,59 @@ function build() {
     }
 }
 
+
 function init() {
-    const fill = (el, data) => { el.innerHTML = ""; for (let k in data) el.add(new Option(data[k].en, k)); };
+    const fill = (el, data) => { 
+        el.innerHTML = ""; 
+        for (let k in data) {
+            let option = new Option(data[k].en, k);
+            el.add(option);
+        }
+    };
+
+    // 1. Populate dropdowns
     fill(elements.subj, subjects);
     fill(elements.verb, verbs);
     fill(elements.pred, predicates);
     fill(elements.obj, objects);
     fill(elements.prep, prepositions);
-    [elements.subj, elements.pred, elements.verb, elements.obj, elements.prep, elements.tense, elements.mode].forEach(el => el.onchange = build);
+
+    // 2. Set Defaults (Ensuring 'anisur' exists in your subjects object)
+    if (subjects.anisur) {
+        elements.subj.value = "anisur";
+    } else {
+        // Fallback to first available subject if anisur isn't defined yet
+        elements.subj.selectedIndex = 0; 
+    }
+    
+    elements.prep.value = "ila"; // Auto-load 'to'
+
+    // 3. Attach listeners
+    [elements.subj, elements.pred, elements.verb, elements.obj, 
+     elements.prep, elements.tense, elements.mode].forEach(el => {
+        el.onchange = build;
+    });
+
+    // 4. Handle Type Switching
     elements.type.onchange = () => {
         const isNom = elements.type.value === "nominal";
+        
+        if (!isNom) {
+            elements.prep.value = "ila"; // Reset to 'to' when clicking verbal
+        }
+
         elements.nominalFields.forEach(f => f.style.display = isNom ? "block" : "none");
         elements.verbalFields.forEach(f => f.style.display = isNom ? "none" : "block");
-        build();
+        
+        build(); // Triggers Arabic/English update on change
     };
+
     elements.btn.onclick = build;
+
+    // 5. CRITICAL: Trigger initial display
+    // This removes the need to "select first" manually
     elements.type.dispatchEvent(new Event('change'));
+    build(); 
 }
+
 init();
