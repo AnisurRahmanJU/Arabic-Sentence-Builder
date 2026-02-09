@@ -143,7 +143,7 @@ const prepositions = {
     an:   { en: "about", ar: "عَنْ" },
     inda: { en: "at",   ar: "عِنْدَ" },
     mAa:  { en: "with", ar: "مَعَ" },
-    bi:   { en: "by/with", ar: "بِ" }
+    bi:   { en: "by", ar: "بِ" }
 };
 
 const objects = {
