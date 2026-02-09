@@ -1,4 +1,3 @@
-
 const elements = {
     type: document.getElementById("sentenceType"),
     subj: document.getElementById("subject"),
@@ -16,7 +15,7 @@ const elements = {
 };
 
 const subjects = {
-    anis:    { en: "Anis", ar: "أَنِيسٌ", p: "3sm", n: "s" },
+    anis:      { en: "Anis", ar: "أَنِيسٌ", p: "3sm", n: "s" },
     huwa:      { en: "He", ar: "هُوَ", p: "3sm", n: "s" },
     huma_m:    { en: "They (2m)", ar: "هُمَا", p: "3dm", n: "d" },
     hum:       { en: "They (m)", ar: "هُمْ", p: "3pm", n: "p" },
@@ -132,14 +131,13 @@ const verbs = {
     sajada: { en: "prostrate", pastEn: "prostrated", ar: {
         past: { "3sm":"سَجَدَ", "3dm":"سَجَدَا", "3pm":"سَجَدُوا", "3sf":"سَجَدَتْ", "3df":"سَجَدَتَا", "3pf":"سَجَدْنَ", "2sm":"سَجَدْتَ", "2dm":"سَجَدْتُمَا", "2pm":"سَجَدْتُمْ", "2sf":"سَجَدْتِ", "2df":"سَجَدْتُمَا", "2pf":"سَجَدْتُنَّ", "1s":"سَجَدْتُ", "1p":"سَجَدْنَا" },
         present: { "3sm":"يَسْجُدُ", "3dm":"يَسْجُدَانِ", "3pm":"يَسْجُدُونَ", "3sf":"تَسْجُدُ", "3df":"تَسْجُدَانِ", "3pf":"يَسْجُدْنَ", "2sm":"تَسْجُدُ", "2dm":"تَسْجُدَانِ", "2pm":"تَسْجُدُونَ", "2sf":"تَسْجُدِينَ", "2df":"تَسْجُدَانِ", "2pf":"تَسْجُدْنَ", "1s":"أَسْجُدُ", "1p":"نَسْجُدُ" },
-        order: { "2sm":"اُسْجُدْ", "2sf":"اُسْجُدِي", "2dm":"اُسْجُدَا", "2df":"اُسْجُدَا", "2pm":"اُسْجُدُوا", "2pf":"اُسْجُدْنَ" }
+        order: { "2sm":"اُسْجُدْ", "2sf":"اُسْجُدِي", "2dm":"اُسْجُدَا", "2df":"اُس_جُدَا", "2pm":"اُسْجُدُوا", "2pf":"اُسْجُدْنَ" }
     }}
 };
 
 const prepositions = {
-    // Keep 'none' as an option
     none: { en: " ", ar: "" },
-    ila:  { en: "to",  ar: "إِلَى" }, // Put this first to auto-loa
+    ila:  { en: "to",  ar: "إِلَى" },
     fi:   { en: "in",  ar: "فِي" },
     ala:  { en: "on",  ar: "عَلَى" },
     min:  { en: "from", ar: "مِنْ" },
@@ -161,11 +159,11 @@ const objects = {
     chair:   { en: "the chair", ar: "الْكُرْسِيَّ", arJer: "الْكُرْسِيِّ", type: "noun" },
     lugha:   { en: "the language", ar: "اللُّغَةَ", arJer: "اللُّغَةِ", type: "noun" },
     kitab:   { en: "the book", ar: "الْكِتَابَ", arJer: "الْكِتَابِ", type: "noun" },
-    ruzz:      { en: "rice", ar: "الرُّزَّ", arJer: "الرُّزِّ", type: "noun" },
-    maa:       { en: "water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
-    tuffah:    { en: "apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
-    walad:     { en: "the boy", ar: "الْوَلَدَ", arJer: "الْوَلَدِ", type: "noun" },
-    bint:      { en: "the girl", ar: "الْبِنْتَ", arJer: "الْبِنْتِ", type: "noun" },
+    ruzz:    { en: "rice", ar: "الرُّزَّ", arJer: "الرُّزِّ", type: "noun" },
+    maa:     { en: "water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
+    tuffah:  { en: "apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
+    walad:   { en: "the boy", ar: "الْوَلَدَ", arJer: "الْوَلَدِ", type: "noun" },
+    bint:    { en: "the girl", ar: "الْبِنْتَ", arJer: "الْبِنْتِ", type: "noun" },
     imtihan: { en: "the exam", ar: "الِامْتِحَانَ", arJer: "الِامْتِحَانِ", type: "noun" },
     yadayn:  { en: "the hands", ar: "الْيَدَيْنِ", arJer: "الْيَدَيْنِ", type: "noun" },
     wajh:    { en: "the face", ar: "الْوَجْهَ", arJer: "الْوَجْهِ", type: "noun" },
@@ -179,19 +177,19 @@ const objects = {
     khabar:  { en: "the news", ar: "الْخَبَرَ", arJer: "الْخَبَرِ", type: "noun" },
     ism:     { en: "the name", ar: "الِاسْمَ", arJer: "الِاسْمِ", type: "noun" },
     haqiqah: { en: "the truth", ar: "الْحَقِيقَةَ", arJer: "الْحَقِيقَةِ", type: "noun" },
-    obj_me:        { en: "me", suffix: "نِي", type: "pronoun" },
-    obj_us:        { en: "us", suffix: "نَا", type: "pronoun" },
-    obj_it:        { en: "it", suffix: "هُ", type: "pronoun" },
-    obj_him:       { en: "him", suffix: "هُ", type: "pronoun" },
-    obj_her:       { en: "her", suffix: "هَا", type: "pronoun" },
-    obj_them_m:    { en: "them(m)", suffix: "هُمْ", type: "pronoun" },
-    obj_them_f:    { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
-    obj_them_d:    { en: "them(dual)", suffix: "هُمَا", type: "pronoun" },
-    obj_you_m:     { en: "you (m sg)", suffix: "كَ", type: "pronoun" },
-    obj_you_f:     { en: "you (f sg)", suffix: "كِ", type: "pronoun" },
-    obj_you_d:     { en: "you (dual)", suffix: "كُمَا", type: "pronoun" },
-    obj_you_pm:    { en: "you (m pl)", suffix: "كُمْ", type: "pronoun" },
-    obj_you_pf:    { en: "you (f pl)", suffix: "كُنَّ", type: "pronoun" }
+    obj_me:     { en: "me", suffix: "نِي", type: "pronoun" },
+    obj_us:     { en: "us", suffix: "نَا", type: "pronoun" },
+    obj_it:     { en: "it", suffix: "هُ", type: "pronoun" },
+    obj_him:    { en: "him", suffix: "هُ", type: "pronoun" },
+    obj_her:    { en: "her", suffix: "هَا", type: "pronoun" },
+    obj_them_m: { en: "them(m)", suffix: "هُمْ", type: "pronoun" },
+    obj_them_f: { en: "them(f)", suffix: "هُنَّ", type: "pronoun" },
+    obj_them_d: { en: "them(dual)", suffix: "هُمَا", type: "pronoun" },
+    obj_you_m:  { en: "you (m sg)", suffix: "كَ", type: "pronoun" },
+    obj_you_f:  { en: "you (f sg)", suffix: "كِ", type: "pronoun" },
+    obj_you_d:  { en: "you (dual)", suffix: "كُمَا", type: "pronoun" },
+    obj_you_pm: { en: "you (m pl)", suffix: "كُمْ", type: "pronoun" },
+    obj_you_pf: { en: "you (f pl)", suffix: "كُنَّ", type: "pronoun" }
 };
 
 const predicates = {
@@ -208,12 +206,7 @@ const predicates = {
 };
 
 function getJarSuffix(suffix) {
-    const jarMap = {
-        "هُ": "هِ",
-        "هُمْ": "هِمْ",
-        "هُنَّ": "هِنَّ",
-        "هُمَا": "هِمَا"
-    };
+    const jarMap = { "هُ": "هِ", "هُمْ": "هِمْ", "هُنَّ": "هِنَّ", "هُمَا": "هِمَا" };
     return jarMap[suffix] || suffix;
 }
 
@@ -224,11 +217,15 @@ function build() {
     if (type === "nominal") {
         const p = predicates[elements.pred.value];
         elements.arOut.textContent = `${s.ar} ${p.ar[s.p]}`;
+        
         let verbBe = "is";
         if (s.p === "1s") verbBe = "am";
         else if (s.n !== "s" || s.p.startsWith("2")) verbBe = "are";
-        let predEn = (s.n !== "s") ? p.en + "s" : p.en;
+        
+        // Corrected Nominal "a" logic for singular English output
+        let predEn = (s.n === "s") ? "a " + p.en : p.en + "s";
         elements.enOut.textContent = `${s.en} ${verbBe} ${predEn}.`;
+
     } else {
         const v = verbs[elements.verb.value];
         const obj = objects[elements.obj.value];
@@ -244,10 +241,8 @@ function build() {
         let vAr = v.ar[tense][s.p] || v.ar[tense]["3sm"] || "";
         let arRes = [];
         
-        // INTERROGATIVE PARTICLE (Hal)
         if (mode === "interrogative") arRes.push("هَلْ");
 
-        // VERBAL STRUCTURE: [Negation] -> Verb -> [Pronoun Obj] -> Subject
         if (tense === "order") {
             if (mode === "negative") {
                 let prohibitionVerb = v.ar.present[s.p];
@@ -264,41 +259,31 @@ function build() {
             arRes.push(vAr);
         }
 
-        // Logic for Pronouns vs Nouns with getJarSuffix
         if (obj.type === "pronoun") {
             if (prep.ar !== "") {
-                // Preposition exists: Push subject, then preposition+suffix
                 arRes.push(s.ar);
                 let prepBase = prep.ar;
                 if (prepBase === "عَلَى") prepBase = "عَلَيْ";
                 if (prepBase === "إِلَى") prepBase = "إِلَيْ";
-                
                 let finalSuffix = obj.suffix;
-                const causesJarShift = ["عَلَيْ", "إِلَيْ", "بِ", "فِي"];
-                if (causesJarShift.includes(prepBase)) finalSuffix = getJarSuffix(obj.suffix);
+                if (["عَلَيْ", "إِلَيْ", "بِ", "فِي"].includes(prepBase)) finalSuffix = getJarSuffix(obj.suffix);
                 arRes.push(prepBase + finalSuffix);
             } else {
-                // Direct Object Pronoun: Attach to VERB, then push subject
                 let verbWithSuffix = arRes.pop() + obj.suffix;
                 arRes.push(verbWithSuffix, s.ar);
             }
         } else {
-            // Noun Object: Push Subject first, then Noun
             arRes.push(s.ar);
-            if (prep.ar !== "") {
-                arRes.push(prep.ar, obj.arJer || obj.ar);
-            } else {
-                arRes.push(obj.ar);
-            }
+            if (prep.ar !== "") arRes.push(prep.ar, obj.arJer || obj.ar);
+            else arRes.push(obj.ar);
         }
         
         elements.arOut.textContent = arRes.join(" ");
 
-        // English Output Logic
         let enRes = "";
         const isSing3rd = (s.p === "3sm" || s.p === "3sf");
         const doDoes = isSing3rd ? "does" : "do";
-        const prepEn = prep.en !== "" ? prep.en + " " : "";
+        const prepEn = (prep.en && prep.en.trim() !== "") ? prep.en + " " : "";
 
         if (tense === "past") {
             if (mode === "negative") enRes = `${s.en} did not ${v.en} ${prepEn}${obj.en}.`;
@@ -320,59 +305,35 @@ function build() {
     }
 }
 
-
 function init() {
     const fill = (el, data) => { 
         el.innerHTML = ""; 
-        for (let k in data) {
-            let option = new Option(data[k].en, k);
-            el.add(option);
-        }
+        for (let k in data) el.add(new Option(data[k].en, k));
     };
 
-    // 1. Populate dropdowns
     fill(elements.subj, subjects);
     fill(elements.verb, verbs);
     fill(elements.pred, predicates);
     fill(elements.obj, objects);
     fill(elements.prep, prepositions);
 
-    // 2. Set Defaults (Ensuring 'anisur' exists in your subjects object)
-    if (subjects.anisur) {
-        elements.subj.value = "anisur";
-    } else {
-        // Fallback to first available subject if anisur isn't defined yet
-        elements.subj.selectedIndex = 0; 
-    }
+    // Default Settings
+    elements.subj.value = "anis";
+    elements.prep.value = "ila";
+
+    [elements.subj, elements.pred, elements.verb, elements.obj, elements.prep, elements.tense, elements.mode].forEach(el => el.onchange = build);
     
-    elements.prep.value = "ila"; // Auto-load 'to'
-
-    // 3. Attach listeners
-    [elements.subj, elements.pred, elements.verb, elements.obj, 
-     elements.prep, elements.tense, elements.mode].forEach(el => {
-        el.onchange = build;
-    });
-
-    // 4. Handle Type Switching
     elements.type.onchange = () => {
         const isNom = elements.type.value === "nominal";
-        
-        if (!isNom) {
-            elements.prep.value = "ila"; // Reset to 'to' when clicking verbal
-        }
-
+        if (!isNom) elements.prep.value = "ila"; 
         elements.nominalFields.forEach(f => f.style.display = isNom ? "block" : "none");
         elements.verbalFields.forEach(f => f.style.display = isNom ? "none" : "block");
-        
-        build(); // Triggers Arabic/English update on change
+        build();
     };
 
     elements.btn.onclick = build;
-
-    // 5. CRITICAL: Trigger initial display
-    // This removes the need to "select first" manually
     elements.type.dispatchEvent(new Event('change'));
-    build(); 
+    build();
 }
 
 init();
