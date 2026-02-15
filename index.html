@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arabic Sentence Engine v3.0 | Dark Mode</title>
+    <title>Arabic Sentence Builder</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600&display=swap');
@@ -16,12 +16,12 @@
     <div class="max-w-6xl mx-auto">
         <header class="mb-10 text-center">
             <h1 class="text-4xl font-extrabold text-white tracking-tight">Arabic <span class="text-indigo-400">Sentence Builder</span></h1>
-            <p class="text-slate-400 mt-2 font-medium">Dynamic Grammar & Conjugation Engine</p>
+            <p class="text-slate-400 mt-2 font-medium">Dynamic Arabic Sentence Builder Easily</p>
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
-            <div class="lg:col-span-1 bg-slate-800/50 p-6 rounded-2xl shadow-2xl border border-slate-700 space-y-5 backdrop-blur-sm">
+            <div class="lg:col-span-1 bg-slate-800/50 p-6 rounded-2xl shadow-2xl border border-slate-700 space-y-5 backdrop-blur-sm h-fit">
                 
                 <div>
                     <label class="block text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Sentence Type</label>
@@ -81,7 +81,7 @@
                 </div>
 
                 <button id="btnGenerate" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-indigo-500/20 transform active:scale-[0.98] transition-all">
-                    REFRESH OUTPUT
+                    Generate Sentence
                 </button>
             </div>
 
@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="bg-slate-800/40 border border-emerald-500/30 p-8 rounded-2xl shadow-xl backdrop-blur-md">
-                    <span class="text-xs font-black text-emerald-400 uppercase tracking-widest block mb-2">English Meaning</span>
+                    <span class="text-xs font-black text-emerald-400 uppercase tracking-widest block mb-2">English Sentence</span>
                     <p id="en-out" class="text-2xl text-slate-100 font-light italic leading-relaxed">...</p>
                 </div>
 
@@ -103,6 +103,26 @@
                     <p class="leading-relaxed">
                         <strong>Grammar:</strong> In <span class="text-white">Passive Mode</span>, the verb stems change to (Fu'ila/Yuf'alu). Use the <strong>Imperative</strong> tense for direct commands.
                     </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://arabic-verb-conjugator.vercel.app" target="_blank" 
+                       class="flex items-center justify-between bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-indigo-500 p-4 rounded-xl transition-all group">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-tight">Tool</span>
+                            <span class="text-sm font-semibold text-white">Arabic Verb Conjugator</span>
+                        </div>
+                        <span class="text-xl group-hover:scale-125 transition-transform">⚡</span>
+                    </a>
+
+                    <a href="https://bangla-arabic-translator.vercel.app/" target="_blank" 
+                       class="flex items-center justify-between bg-slate-800/50 hover:bg-slate-800 border border-slate-700 hover:border-emerald-500 p-4 rounded-xl transition-all group">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-tight">Translation</span>
+                            <span class="text-sm font-semibold text-white">Bangla ↔ Arabic Translator</span>
+                        </div>
+                        <span class="text-xl group-hover:scale-125 transition-transform">🌍</span>
+                    </a>
                 </div>
 
             </div>
