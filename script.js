@@ -1,15 +1,4 @@
-/**
- * ARABIC & ENGLISH SENTENCE ENGINE v11.0 - FULL SCALE
- * Features: 
- * - 14 Subject Pronouns (Standard Arabic Matrix)
- * - 14 Object Pronoun Suffixes
- * - Nominal & Verbal Logic
- * - Full Indefinite Article (a/an) Support for Singular Nouns
- * - 30+ Fully Conjugated Verbs
- * - Passive Voice Root-Modification Algorithm
- * - Prohibition Logic (Jussive Mood / Sukun)
- * - Order Question Support (Do you [verb]...?)
- */
+
 
 const elements = {
     type: document.getElementById("sentenceType"),
