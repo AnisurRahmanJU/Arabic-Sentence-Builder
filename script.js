@@ -130,11 +130,17 @@ const verbs = {
 // --- PREPOSITIONS ---
 const prepositions = {
     none: { en: "", ar: "" },
-    ila:  { en: "to",  ar: "إِلَى" },
-    fi:   { en: "in",  ar: "فِي" },
-    ala:  { en: "on",  ar: "عَلَى" },
-    min:  { en: "from", ar: "مِنْ" }
+    ila:  { en: "to",      ar: "إِلَى" },
+    fi:   { en: "in",      ar: "فِي" },
+    ala:  { en: "on",      ar: "عَلَى" },
+    min:  { en: "from",    ar: "مِنْ" },
+    maya: { en: "with",    ar: "مَعَ" },
+    bi:   { en: "by",      ar: "بِـ" },
+    li:   { en: "for",     ar: "لِـ" },
+    an:   { en: "about",   ar: "عَنْ" },
+    bayna:{ en: "between", ar: "بَيْنَ" }
 };
+
 
 // --- OBJECTS ---
 const objects = {
@@ -148,7 +154,17 @@ const objects = {
     obj_him:  { en: "him", subEn: "He", suffix: "هُ", p: "3sm", type: "pronoun" },
     obj_her:  { en: "her", subEn: "She", suffix: "هَا", p: "3sf", type: "pronoun" },
     obj_me:   { en: "me", subEn: "I", suffix: "نِي", p: "1s", type: "pronoun" },
-    obj_us:   { en: "us", subEn: "We", suffix: "نَا", p: "1p", type: "pronoun" }
+    obj_us:   { en: "us", subEn: "We", suffix: "نَا", p: "1p", type: "pronoun" },
+    obj_you_m:  { en: "you (m)", subEn: "You (m)", suffix: "كَ", p: "2sm", type: "pronoun" },
+    obj_you_f:  { en: "you (f)", subEn: "You (f)", suffix: "كِ", p: "2sf", type: "pronoun" },
+    obj_you_mpl:{ en: "you (m-pl)", subEn: "You (m-pl)", suffix: "كُم", p: "2pm", type: "pronoun" },
+    obj_you_fpl:{ en: "you (f-pl)", subEn: "You (f-pl)", suffix: "كُنَّ", p: "2pf", type: "pronoun" },
+    obj_them_m: { en: "them (m)", subEn: "They (m)", suffix: "هُمْ", p: "3pm", type: "pronoun" },
+    obj_them_f: { en: "them (f)", subEn: "They (f)", suffix: "هُنَّ", p: "3pf", type: "pronoun" },
+    obj_them_2m:{ en: "them (2m)", subEn: "They (2m)", suffix: "هُمَا", p: "3dm", type: "pronoun" },
+    obj_them_2f:   { en: "them (2f)", subEn: "They (2f)", suffix: "هُمَا", p: "3df", type: "pronoun" },
+    obj_you_2m: { en: "you (2m)", subEn: "You (2m)", suffix: "كُمَا", p: "2dm", type: "pronoun" },
+    obj_you_2f: { en: "you (2f)", subEn: "You (2f)", suffix: "كُمَا", p: "2df", type: "pronoun" };
 };
 
 // --- PREDICATES (For Nominal Sentences) ---
