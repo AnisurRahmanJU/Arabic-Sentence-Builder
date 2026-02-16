@@ -1,5 +1,3 @@
-
-
 const elements = {
     type: document.getElementById("sentenceType"),
     subj: document.getElementById("subject"),
@@ -16,26 +14,22 @@ const elements = {
     verbalFields: document.querySelectorAll(".verbal-only")
 };
 
-// --- 1. SUBJECTS DICTIONARY (Expanded to Full 14 Pronoun Set) ---
+// --- 1. SUBJECTS DICTIONARY ---
 const subjects = {
-    // 3rd Person
     huwa:      { en: "He", ar: "هُوَ", p: "3sm", n: "s" },
     huma_m:    { en: "They (2m)", ar: "هُمَا", p: "3dm", n: "d" },
     hum:       { en: "They (m)", ar: "هُمْ", p: "3pm", n: "p" },
     hiya:      { en: "She", ar: "هِيَ", p: "3sf", n: "s" },
     huma_f:    { en: "They (2f)", ar: "هُمَا", p: "3df", n: "d" },
     hunna:     { en: "They (f)", ar: "هُنَّ", p: "3pf", n: "p" },
-    // 2nd Person
     anta:      { en: "You (m)", ar: "أَنْتَ", p: "2sm", n: "s" },
     antuma_m:  { en: "You (2m)", ar: "أَنْتُمَا", p: "2dm", n: "d" },
     antum:     { en: "You (m-pl)", ar: "أَنْتُمْ", p: "2pm", n: "p" },
     anti:      { en: "You (f)", ar: "أَنْتِ", p: "2sf", n: "s" },
     antuma_f:  { en: "You (2f)", ar: "أَنْتُمَا", p: "2df", n: "d" },
     antunna:   { en: "You (f-pl)", ar: "أَنْتُنَّ", p: "2pf", n: "p" },
-    // 1st Person
     ana:       { en: "I", ar: "أَنَا", p: "1s", n: "s" },
     nahnu:     { en: "We", ar: "نَحْنُ", p: "1p", n: "p" },
-    // Proper Noun
     anis:      { en: "Anis", ar: "أَنِيسٌ", p: "3sm", n: "s" }
 };
 
@@ -107,7 +101,7 @@ const prepositions = {
     bayna:{ en: "between", ar: "بَيْنَ" }
 };
 
-// --- 4. OBJECTS DICTIONARY (Full 14 Pronoun Suffix Matrix Included) ---
+// --- 4. OBJECTS DICTIONARY ---
 const objects = {
     madrasah: { en: "school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "place" },
     ghurfah:  { en: "room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "place" },
@@ -178,13 +172,11 @@ function getPassiveAr(vKey, tense, person) {
         return stem + (endings[person] || "َ");
     } else {
         const pref = { "3sm":"يُ", "3sf":"تُ", "3dm":"يُ", "3df":"تُ", "1s":"أُ", "1p":"نُ", "2sm":"تُ", "2sf":"تُ", "2pm":"تُ", "2pf":"تُ" };
-        const stem = r[0] + "ْ" + rootVowel(r[1]) + "َ" + r[2]; 
+        const stem = r[0] + "ْ" + r[1] + "َ" + r[2]; 
         const endings = { "3sm":"ُ", "3dm":"َانِ", "3pm":"ُونَ", "3pf":"ْنَ", "2sf":"ِينَ", "2sm":"ُ", "2dm":"َانِ", "2pm":"ُونَ", "2pf":"ْنَ" };
         return (pref[person] || "يُ") + stem + (endings[person] || "ُ");
     }
 }
-// Helper for passive present root vowel (usually Fatha)
-function rootVowel(char) { return char; }
 
 function getEnglishBe(p, tense) {
     const isPast = (tense === "past");
@@ -193,7 +185,6 @@ function getEnglishBe(p, tense) {
     return isPast ? "were" : "are";
 }
 
-// Prohibition (Negative Order) Helper for Arabic
 function applyJussive(base) {
     if (base.endsWith("ُ")) return base.slice(0, -1) + "ْ";
     if (base.endsWith("َانِ") || base.endsWith("ُونَ") || base.endsWith("ِينَ")) return base.slice(0, -1);
@@ -229,18 +220,19 @@ function build() {
 
     if (mode === "passive") {
         const vAr = getPassiveAr(elements.verb.value, tense, (obj.type === "pronoun" ? obj.p : "3sm"));
+        let beAux = (tense === "present") ? `${getEnglishBe(obj.p || "3sm", "present")} being` : getEnglishBe(obj.p || "3sm", "past");
+        
         if (obj.type === "place") {
             arParts = [vAr, prep.ar || "إِلَى", obj.arJer];
-            enRes = `It ${tense === "past" ? "was" : "is"} ${v.part} ${prep.en || "to"} ${obj.en}.`;
+            enRes = `It ${beAux} ${v.part} ${prep.en || "to"} ${obj.en}.`;
         } else if (obj.type === "pronoun") {
             arParts = [vAr];
-            enRes = `${obj.subEn} ${getEnglishBe(obj.p, tense)} ${v.part}.`;
+            enRes = `${obj.subEn} ${beAux} ${v.part}.`;
         } else {
             arParts = [vAr, obj.ar.replace("َ", "ُ")]; 
-            enRes = `${obj.en.charAt(0).toUpperCase() + obj.en.slice(1)} ${tense === "past" ? "was" : "is"} ${v.part}.`;
+            enRes = `${obj.en.charAt(0).toUpperCase() + obj.en.slice(1)} ${beAux} ${v.part}.`;
         }
     } else {
-        // --- ORDER QUESTION SPECIAL LOGIC ---
         if (tense === "order" && mode === "interrogative") {
             arParts.push("هَلْ", v.ar.present[s.p]);
             const is3s = (s.p === "3sm" || s.p === "3sf");
@@ -250,14 +242,9 @@ function build() {
         } 
         else {
             if (mode === "interrogative") arParts.push("هَلْ");
-            
             if (tense === "order") {
                 if (!s.p.startsWith("2")) { elements.arOut.textContent = "Requires 'You' subject"; return; }
-                if (mode === "negative") {
-                    arParts.push("لَا", applyJussive(v.ar.present[s.p]));
-                } else {
-                    arParts.push(v.ar.order[s.p]);
-                }
+                arParts.push(mode === "negative" ? "لَا " + applyJussive(v.ar.present[s.p]) : v.ar.order[s.p]);
             } else {
                 if (mode === "negative") arParts.push(tense === "past" ? "مَا" : "لَا");
                 arParts.push(v.ar[tense][s.p]);
@@ -266,11 +253,43 @@ function build() {
         
         arParts.push(s.ar);
         
+        // --- PREPOSITION + OBJECT (Pronoun or Noun) LOGIC ---
         if (obj.type === "pronoun") {
-            if (prep.ar !== "") arParts.push(prep.ar + " " + obj.suffix);
-            else { let last = arParts.pop(); arParts.push(last + obj.suffix); }
+            if (prep.ar !== "") {
+                let pBase = prep.ar;
+                let suf = obj.suffix;
+
+                // Grammar Rule: Handle change to 'i' sound (Kasra) for 3rd person suffixes
+                // when following prepositions ending in 'Ya' or when preposition is Bi/Li
+                const needsKasra = (pBase === "إِلَى" || pBase === "عَلَى" || pBase === "فِي" || pBase === "بِـ" || pBase === "لِـ");
+                
+                if (needsKasra) {
+                    if (suf === "هُ") suf = "هِ";
+                    else if (suf === "هُمَا") suf = "هِمَا";
+                    else if (suf === "هُمْ") suf = "هِمْ";
+                    else if (suf === "هُنَّ") suf = "هِنَّ";
+                }
+
+                // Handle Alif Maqsura transformation (ila -> ilai, ala -> alai)
+                if (pBase === "إِلَى") pBase = "إِلَيْ";
+                else if (pBase === "عَلَى") pBase = "عَلَيْ";
+                else if (pBase === "بِـ") pBase = "بِ";
+                else if (pBase === "لِـ") pBase = "لِ";
+
+                // Attach suffix directly to preposition
+                arParts.push(pBase + suf);
+            } else {
+                // No preposition: attach to subject (verbal sentence structure)
+                let last = arParts.pop();
+                arParts.push(last + obj.suffix);
+            }
         } else {
-            arParts.push(prep.ar !== "" ? prep.ar : "", prep.ar !== "" ? obj.arJer : obj.ar);
+            // Standard Noun object
+            if (prep.ar !== "") {
+                arParts.push(prep.ar, obj.arJer);
+            } else {
+                arParts.push(obj.ar);
+            }
         }
 
         const is3s = (s.p === "3sm" || s.p === "3sf");
