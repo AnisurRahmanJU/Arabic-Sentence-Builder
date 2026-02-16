@@ -179,6 +179,7 @@ function getPassiveAr(vKey, tense, person) {
 }
 
 function getEnglishBe(p, tense) {
+    // UPDATED: 'order' uses 'is/am/are' for passive logic
     const isPast = (tense === "past");
     if (p === "1s") return isPast ? "was" : "am";
     if (p === "3sm" || p === "3sf") return isPast ? "was" : "is";
@@ -219,9 +220,15 @@ function build() {
     let enRes = "";
 
     if (mode === "passive") {
-        const vAr = getPassiveAr(elements.verb.value, tense, (obj.type === "pronoun" ? obj.p : "3sm"));
-        let beAux = (tense === "present") ? `${getEnglishBe(obj.p || "3sm", "present")} being` : getEnglishBe(obj.p || "3sm", "past");
+        const targetPerson = (obj.type === "pronoun" ? obj.p : "3sm");
+        const vAr = getPassiveAr(elements.verb.value, tense, targetPerson);
         
+        // Passive English Logic: Order + Present uses 'is/am/are'
+        let beAux = getEnglishBe(targetPerson, (tense === "past" ? "past" : "present"));
+        
+        // Present progressive handling
+        if (tense === "present") beAux += " being";
+
         if (obj.type === "place") {
             arParts = [vAr, prep.ar || "إِلَى", obj.arJer];
             enRes = `It ${beAux} ${v.part} ${prep.en || "to"} ${obj.en}.`;
@@ -233,6 +240,7 @@ function build() {
             enRes = `${obj.en.charAt(0).toUpperCase() + obj.en.slice(1)} ${beAux} ${v.part}.`;
         }
     } else {
+        // --- ACTIVE LOGIC ---
         if (tense === "order" && mode === "interrogative") {
             arParts.push("هَلْ", v.ar.present[s.p]);
             const is3s = (s.p === "3sm" || s.p === "3sf");
@@ -253,16 +261,14 @@ function build() {
         
         arParts.push(s.ar);
         
-        // --- PREPOSITION + OBJECT (Pronoun or Noun) LOGIC ---
+        // --- PREPOSITION + OBJECT (Pronoun or Noun) FUSION ---
         if (obj.type === "pronoun") {
             if (prep.ar !== "") {
                 let pBase = prep.ar;
                 let suf = obj.suffix;
 
                 // Grammar Rule: Handle change to 'i' sound (Kasra) for 3rd person suffixes
-                // when following prepositions ending in 'Ya' or when preposition is Bi/Li
                 const needsKasra = (pBase === "إِلَى" || pBase === "عَلَى" || pBase === "فِي" || pBase === "بِـ" || pBase === "لِـ");
-                
                 if (needsKasra) {
                     if (suf === "هُ") suf = "هِ";
                     else if (suf === "هُمَا") suf = "هِمَا";
@@ -276,15 +282,12 @@ function build() {
                 else if (pBase === "بِـ") pBase = "بِ";
                 else if (pBase === "لِـ") pBase = "لِ";
 
-                // Attach suffix directly to preposition
                 arParts.push(pBase + suf);
             } else {
-                // No preposition: attach to subject (verbal sentence structure)
                 let last = arParts.pop();
                 arParts.push(last + obj.suffix);
             }
         } else {
-            // Standard Noun object
             if (prep.ar !== "") {
                 arParts.push(prep.ar, obj.arJer);
             } else {
