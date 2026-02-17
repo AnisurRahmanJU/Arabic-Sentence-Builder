@@ -103,27 +103,27 @@ const prepositions = {
 
 // --- 4. OBJECTS DICTIONARY ---
 const objects = {
-    madrasah: { en: "school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "place" },
-    ghurfah:  { en: "room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "place" },
-    bait:     { en: "house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "place" },
+    madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "place" },
+    ghurfah:  { en: "the room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "place" },
+    bait:     { en: "the house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "place" },
     kitab:    { en: "the book", ar: "الْكِتَابَ", arJer: "الْكِتَابِ", type: "noun" },
-    maa:      { en: "water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
+    maa:      { en: "the water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
     qamis:    { en: "the shirt", ar: "الْقَمِيصَ", arJer: "الْقَمِيصِ", type: "noun" },
-    tuffah:   { en: "apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
+    tuffah:   { en: "the apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
     
     // --- 14 Object Pronouns (Attached Suffixes) ---
     obj_hu:      { en: "him", suffix: "هُ", p: "3sm", subEn: "He", type: "pronoun" },
-    obj_huma_m: { en: "them (2m)", suffix: "هُمَا", p: "3dm", subEn: "They (2m)", type: "pronoun" },
-    obj_hum:    { en: "them (m)", suffix: "هُمْ", p: "3pm", subEn: "They (m)", type: "pronoun" },
+    obj_huma_m:  { en: "them (2m)", suffix: "هُمَا", p: "3dm", subEn: "They (2m)", type: "pronoun" },
+    obj_hum:     { en: "them (m)", suffix: "هُمْ", p: "3pm", subEn: "They (m)", type: "pronoun" },
     obj_ha:      { en: "her", suffix: "هَا", p: "3sf", subEn: "She", type: "pronoun" },
-    obj_huma_f: { en: "them (2f)", suffix: "هُمَا", p: "3df", subEn: "They (2f)", type: "pronoun" },
-    obj_hunna:  { en: "them (f)", suffix: "هُنَّ", p: "3pf", subEn: "They (f)", type: "pronoun" },
+    obj_huma_f:  { en: "them (2f)", suffix: "هُمَا", p: "3df", subEn: "They (2f)", type: "pronoun" },
+    obj_hunna:   { en: "them (f)", suffix: "هُنَّ", p: "3pf", subEn: "They (f)", type: "pronoun" },
     obj_ka:      { en: "you (m)", suffix: "كَ", p: "2sm", subEn: "You (m)", type: "pronoun" },
-    obj_kuma_m: { en: "you (2m)", suffix: "كُمَا", p: "2dm", subEn: "You (2m)", type: "pronoun" },
-    obj_kum:    { en: "you (m-pl)", suffix: "كُم", p: "2pm", subEn: "You (m-pl)", type: "pronoun" },
+    obj_kuma_m:  { en: "you (2m)", suffix: "كُمَا", p: "2dm", subEn: "You (2m)", type: "pronoun" },
+    obj_kum:     { en: "you (m-pl)", suffix: "كُم", p: "2pm", subEn: "You (m-pl)", type: "pronoun" },
     obj_ki:      { en: "you (f)", suffix: "كِ", p: "2sf", subEn: "You (f)", type: "pronoun" },
-    obj_kuma_f: { en: "you (2f)", suffix: "كُمَا", p: "2df", subEn: "You (2f)", type: "pronoun" },
-    obj_kunna:  { en: "you (f-pl)", suffix: "كُنَّ", p: "2pf", subEn: "You (f-pl)", type: "pronoun" },
+    obj_kuma_f:  { en: "you (2f)", suffix: "كُمَا", p: "2df", subEn: "You (2f)", type: "pronoun" },
+    obj_kunna:   { en: "you (f-pl)", suffix: "كُنَّ", p: "2pf", subEn: "You (f-pl)", type: "pronoun" },
     obj_ni:      { en: "me", suffix: "نِي", p: "1s", subEn: "I", type: "pronoun" },
     obj_na:      { en: "us", suffix: "نَا", p: "1p", subEn: "We", type: "pronoun" }
 };
