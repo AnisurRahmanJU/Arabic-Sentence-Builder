@@ -103,11 +103,11 @@ const prepositions = {
 
 // --- 4. OBJECTS DICTIONARY ---
 const objects = {
-    madrasah: { en: "the school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "place" },
-    ghurfah:  { en: "the room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "place" },
-    bait:     { en: "the house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "place" },
+    madrasah: { en: "school", ar: "الْمَدْرَسَةَ", arJer: "الْمَدْرَسَةِ", type: "place" },
+    ghurfah:  { en: "room", ar: "الْغُرْفَةَ", arJer: "الْغُرْفَةِ", type: "place" },
+    bait:     { en: "house", ar: "الْبَيْتَ", arJer: "الْبَيْتِ", type: "place" },
     kitab:    { en: "the book", ar: "الْكِتَابَ", arJer: "الْكِتَابِ", type: "noun" },
-    maa:      { en: "the water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
+    maa:      { en: "water", ar: "الْمَاءَ", arJer: "الْمَاءِ", type: "noun" },
     qamis:    { en: "the shirt", ar: "الْقَمِيصَ", arJer: "الْقَمِيصِ", type: "noun" },
     tuffah:   { en: "the apple", ar: "التُّفَّاحَةَ", arJer: "التُّفَّاحَةِ", type: "noun" },
     
